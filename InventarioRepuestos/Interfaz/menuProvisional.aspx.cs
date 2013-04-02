@@ -48,7 +48,7 @@ namespace Interfaz
 
         protected void Button3_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Gestion Repuestos/borrarRespuesto.aspx");
+            Response.Redirect("Gestion Repuestos/borrarRepuesto.aspx");
         }
 
         protected void Button4_Click(object sender, EventArgs e)

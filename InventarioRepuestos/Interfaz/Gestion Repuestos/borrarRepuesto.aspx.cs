@@ -8,7 +8,8 @@ using Logica;
 
 namespace Interfaz.Gestion_Repuestos
 {
-    public partial class actualizarRepuestos : System.Web.UI.Page
+
+    public partial class borrarRepuesto : System.Web.UI.Page
     {
         #region atributos
         private static LogicaRepuestos _Logica = new LogicaRepuestos();
@@ -20,16 +21,21 @@ namespace Interfaz.Gestion_Repuestos
             GridViewRepuestos.DataBind();
         }
 
-        protected void ButtonAgregar_Click(object sender, EventArgs e)
+        protected void eventoborrarRepuesto(object sender, GridViewDeleteEventArgs e)
+        {
+            if (!_Logica.borrarRepuesto(e.RowIndex))
+            {
+                GridViewRepuestos.DataSource = _Logica.obtenerRepuestos();
+                GridViewRepuestos.DataBind();
+            }
+            else
+                Response.Write("<SCRIPT>alert('El repuesto no ha sido borrado del sistema.')</SCRIPT>");
+
+        }
+
+        protected void ButtonVolver_Click(object sender, EventArgs e)
         {
             Response.Redirect("../menuProvisional.aspx");
         }
-
-        protected void eventoEditarRepuesto(object sender, GridViewUpdatedEventArgs e)
-        {
-            Response.Redirect("../menuProvisional.aspx");
-        }
-
-
     }
 }

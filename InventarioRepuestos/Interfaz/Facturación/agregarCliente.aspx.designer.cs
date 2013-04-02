@@ -7,7 +7,7 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Interfaz.Facturación {
+namespace Interfaz.Facturacion {
     
     
     public partial class agregarCliente {
@@ -31,13 +31,13 @@ namespace Interfaz.Facturación {
         protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
-        /// Control TextBoxParte.
+        /// Control TextBoxId.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxParte;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxId;
         
         /// <summary>
         /// Control Label3.
@@ -49,13 +49,13 @@ namespace Interfaz.Facturación {
         protected global::System.Web.UI.WebControls.Label Label3;
         
         /// <summary>
-        /// Control TextBoxParte0.
+        /// Control TextBoxTel.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxParte0;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxTel;
         
         /// <summary>
         /// Control Label7.
@@ -67,13 +67,13 @@ namespace Interfaz.Facturación {
         protected global::System.Web.UI.WebControls.Label Label7;
         
         /// <summary>
-        /// Control TextBoxParte1.
+        /// Control TextBoxCel.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxParte1;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxCel;
         
         /// <summary>
         /// Control Label4.
@@ -85,13 +85,13 @@ namespace Interfaz.Facturación {
         protected global::System.Web.UI.WebControls.Label Label4;
         
         /// <summary>
-        /// Control TextBoxParte2.
+        /// Control TextBoxDir.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxParte2;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxDir;
         
         /// <summary>
         /// Control Label5.
@@ -103,13 +103,13 @@ namespace Interfaz.Facturación {
         protected global::System.Web.UI.WebControls.Label Label5;
         
         /// <summary>
-        /// Control DropDownListAnio.
+        /// Control TextBoxTipo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownListAnio;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxTipo;
         
         /// <summary>
         /// Control ButtonAgregar.

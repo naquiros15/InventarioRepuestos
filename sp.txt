@@ -1,0 +1,141 @@
+insert into tiporepuestos (Descripcion) values('Suspensión');
+insert into tiporepuestos (Descripcion) values('Chasis');
+insert into tiporepuestos (Descripcion) values('Motor');
+insert into tiporepuestos (Descripcion) values('Eléctrico');
+insert into tiporepuestos (Descripcion) values('Aire Acondicionado');
+insert into tiporepuestos (Descripcion) values('Frenos');
+
+insert into estilos (Descripcion) values('Sedan');
+insert into estilos (Descripcion) values('4X4');
+insert into estilos (Descripcion) values('4X2');
+
+insert into combustibles (Descripcion) values('Diesel');
+insert into combustibles (Descripcion) values('Regular');
+insert into combustibles (Descripcion) values('Super');
+
+insert into marcas (Descripcion, PaisOrigen) values('Audi','Alemania');
+insert into marcas (Descripcion, PaisOrigen) values('BMW','Alemania');
+insert into marcas (Descripcion, PaisOrigen) values('Chevrolet','USA');
+insert into marcas (Descripcion, PaisOrigen) values('Ferrari','Italia');
+insert into marcas (Descripcion, PaisOrigen) values('Ford','USA');
+insert into marcas (Descripcion, PaisOrigen) values('Honda','Japon');
+insert into marcas (Descripcion, PaisOrigen) values('Hyundai','Corea Sur');
+insert into marcas (Descripcion, PaisOrigen) values('Isuzu','Japon');
+insert into marcas (Descripcion, PaisOrigen) values('Jaguar','Reino Unido');
+insert into marcas (Descripcion, PaisOrigen) values('KIA','Corea Sur');
+insert into marcas (Descripcion, PaisOrigen) values('Land Rover','Reino Unido');
+insert into marcas (Descripcion, PaisOrigen) values('Mercedes','Alemania');
+insert into marcas (Descripcion, PaisOrigen) values('Mitsubishi','Japon');
+insert into marcas (Descripcion, PaisOrigen) values('Nissan','Japon');
+insert into marcas (Descripcion, PaisOrigen) values('Peugeot','Francia');
+insert into marcas (Descripcion, PaisOrigen) values('Porsche','Alemania');
+insert into marcas (Descripcion, PaisOrigen) values('Subaru','Japon');
+insert into marcas (Descripcion, PaisOrigen) values('Suzuki','Japon');
+insert into marcas (Descripcion, PaisOrigen) values('Toyota','Japon');
+insert into marcas (Descripcion, PaisOrigen) values('Volvo','Suecia');
+
+insert into modelos (Descripcion,IdMarca) values('TT','1');
+insert into modelos (Descripcion,IdMarca) values('A7 Sportback','1');
+insert into modelos (Descripcion,IdMarca) values('Z4','2');
+insert into modelos (Descripcion,IdMarca) values('X6','2');
+insert into modelos (Descripcion,IdMarca) values('Camaro','3');
+insert into modelos (Descripcion,IdMarca) values('Corvette','3');
+insert into modelos (Descripcion,IdMarca) values('F12berlinetta','4');
+insert into modelos (Descripcion,IdMarca) values('California','4');
+insert into modelos (Descripcion,IdMarca) values('Focus','5');
+insert into modelos (Descripcion,IdMarca) values('Ranger','5');
+insert into modelos (Descripcion,IdMarca) values('Civic','6');
+insert into modelos (Descripcion,IdMarca) values('Accord','6');
+insert into modelos (Descripcion,IdMarca) values('Santa Fe','7');
+insert into modelos (Descripcion,IdMarca) values('i30','7');
+insert into modelos (Descripcion,IdMarca) values('D-MAX','8');
+insert into modelos (Descripcion,IdMarca) values('XF','9');
+insert into modelos (Descripcion,IdMarca) values('XK','9');
+insert into modelos (Descripcion,IdMarca) values('Optima','10');
+insert into modelos (Descripcion,IdMarca) values('Picanto','10');
+insert into modelos (Descripcion,IdMarca) values('Defender','11');
+insert into modelos (Descripcion,IdMarca) values('Discovery','11');
+insert into modelos (Descripcion,IdMarca) values('Freelander','11');
+insert into modelos (Descripcion,IdMarca) values('Range Rover Sport','11');
+insert into modelos (Descripcion,IdMarca) values('Clase M','12');
+insert into modelos (Descripcion,IdMarca) values('L200','13');
+insert into modelos (Descripcion,IdMarca) values('ASX','13');
+insert into modelos (Descripcion,IdMarca) values('Navara','14');
+insert into modelos (Descripcion,IdMarca) values('RCZ','15');
+insert into modelos (Descripcion,IdMarca) values('Boxster','16');
+insert into modelos (Descripcion,IdMarca) values('Legacy','17');
+insert into modelos (Descripcion,IdMarca) values('Swift','18');
+insert into modelos (Descripcion,IdMarca) values('Yaris','19');
+insert into modelos (Descripcion,IdMarca) values('S60','20');
+
+"Select IdTipo from tiporepuestos where IdTipo = @param_Tipo as idTipo" +
+                    "Select IdVehiculo from Vehiculo where IdMarca = @param_Marca AND " +
+                    "IdModelo = @param_Modelo AND " +
+                    "IdEstilo = @param_Estilo AND " +
+                    "Ano = @param_Anio AND" +
+                    "IdCombustible = @param_Combustible as idVehiculo " +
+                    "Insert into repuestos (IdVehiculo, NumeroParte, IdTipo, Inventario, Descripcion, PrecioUnitario) values " +
+                    "(idVehiculo, @param_Parte,idTipo, @param_Inventario,@param_Descripcion, @param_Precio)";
+
+insert into vehiculos (IdMarca, IdModelo, IdCombustible, IdEstilo, Ano, Descripcion) values ('3','49','1','1','2000','Descripcion');
+insert into vehiculos (IdMarca, IdModelo, IdCombustible, IdEstilo, Ano, Descripcion) values ('20','77','1','2','1995','Descripcion10');
+insert into vehiculos (IdMarca, IdModelo, IdCombustible, IdEstilo, Ano, Descripcion) values ('18','75','2','1','2005','Descripcion');
+insert into vehiculos (IdMarca, IdModelo, IdCombustible, IdEstilo, Ano, Descripcion) values ('','','','','','');
+insert into vehiculos (IdMarca, IdModelo, IdCombustible, IdEstilo, Ano, Descripcion) values ('','','','','','');
+insert into vehiculos (IdMarca, IdModelo, IdCombustible, IdEstilo, Ano, Descripcion) values ('','','','','','');
+insert into vehiculos (IdMarca, IdModelo, IdCombustible, IdEstilo, Ano, Descripcion) values ('','','','','','');
+insert into vehiculos (IdMarca, IdModelo, IdCombustible, IdEstilo, Ano, Descripcion) values ('','','','','','');
+insert into vehiculos (IdMarca, IdModelo, IdCombustible, IdEstilo, Ano, Descripcion) values ('','','','','','');
+insert into vehiculos (IdMarca, IdModelo, IdCombustible, IdEstilo, Ano, Descripcion) values ('','','','','','');
+insert into vehiculos (IdMarca, IdModelo, IdCombustible, IdEstilo, Ano, Descripcion) values ('','','','','','');
+insert into vehiculos (IdMarca, IdModelo, IdCombustible, IdEstilo, Ano, Descripcion) values ('','','','','','');
+insert into vehiculos (IdMarca, IdModelo, IdCombustible, IdEstilo, Ano, Descripcion) values ('','','','','','');
+
+
+Insert into repuestos (IdVehiculo, NumeroParte, IdTipo, Inventario, Descripcion, PrecioUnitario) select (Select IdVehiculo from vehiculos where IdMarca = '20' AND IdModelo = '77' AND IdEstilo = '2' AND Ano = '1995' AND IdCombustible = '1'), '98765',(Select IdTipo from tiporepuestos where IdTipo = '2'), '20','descripcion', '45000';
+
+"Insert into repuestos (IdVehiculo, NumeroParte, IdTipo, Inventario, Descripcion, PrecioUnitario) select (Select IdVehiculo from vehiculos where IdMarca = @param_Marca AND IdModelo = @param_Modelo AND IdEstilo = @param_Estilo AND Ano = @param_Anio AND IdCombustible = @param_Combustible), @param_Parte,(Select IdTipo from tiporepuestos where IdTipo = @param_Tipo), @param_Inventario,@param_Descripcion, @param_Precio";
+
+select repuestos.NumeroParte, tiporepuestos.Descripcion, marcas.Descripcion, modelos.Descripcion, estilos.Descripcion, combustibles.Descripcion, 
+repuestos.Inventario, repuestos.PrecioUnitario, repuestos.Descripcion, vehiculos.Ano from repuestos inner join tiporepuestos ON tiporepuestos.IdTipo 
+= repuestos.IdTipo inner join vehiculos ON repuestos.IdVehiculo = vehiculos.IdVehiculo  inner join modelos ON vehiculos.IdModelo = modelos.IdModelo 
+inner join marcas ON marcas.IdMarca = modelos.IdMarca and vehiculos.IdMarca = marcas.IdMarca  inner join estilos ON vehiculos.IdEstilo = estilos.IdEstilo inner join combustibles ON 
+vehiculos.IdCombustible = combustibles.IdCombustible
+
+select repuestos.NumeroParte, repuestos.Inventario, repuestos.PrecioUnitario, repuestos.Descripcion from repuestos inner join tiporepuestos ON '@param_Tipo' = repuestos.IdTipo inner 
+join vehiculos ON repuestos.IdVehiculo = vehiculos.IdVehiculo and Ano = '1995' inner join modelos ON '77' = modelos.IdModelo inner join marcas ON '20' = 
+marcas.IdMarca inner join estilos ON '2' = estilos.IdEstilo inner join combustibles ON '1' = combustibles.IdCombustible
+
+select repuestos.NumeroParte, repuestos.Inventario, repuestos.PrecioUnitario, repuestos.Descripcion from repuestos inner 
+join vehiculos ON Ano = '2005' inner join modelos ON '75' = modelos.IdModelo inner join marcas ON '18' = 
+marcas.IdMarca inner join estilos ON '1' = estilos.IdEstilo inner join combustibles ON '2' = combustibles.IdCombustible
+
+--en caso de quitar estilos y combustible de todo
+select repuestos.NumeroParte, repuestos.Inventario, repuestos.PrecioUnitario, repuestos.Descripcion from repuestos inner 
+join vehiculos ON Ano = '2005' inner join modelos ON '75' = modelos.IdModelo inner join marcas ON '18' = 
+marcas.IdMarca
+
+
+
+ public static MySqlDataReader obtenerRepuestosPorVehiculo(int pTipo)
+        {
+            MySqlConnection conn = new MySqlConnection(AccesoDatos._Connection);
+            MySqlDataReader myreader;
+            conn.Open();
+            try
+            {
+                string query = "select repuestos.NumeroParte, tiporepuestos.Descripcion, marcas.Descripcion, modelos.Descripcion, estilos.Descripcion, combustibles.Descripcion,"+ 
+"repuestos.Inventario, repuestos.PrecioUnitario, repuestos.Descripcion, vehiculos.Ano from repuestos inner join tiporepuestos ON tiporepuestos.IdTipo "+
+"= @param_Tipo inner join vehiculos ON repuestos.IdVehiculo = vehiculos.IdVehiculo  inner join modelos ON vehiculos.IdModelo = modelos.IdModelo " +
+"inner join marcas ON marcas.IdMarca = modelos.IdMarca and vehiculos.IdMarca = marcas.IdMarca  inner join estilos ON vehiculos.IdEstilo = estilos.IdEstilo inner join combustibles ON "+
+"vehiculos.IdCombustible = combustibles.IdCombustible";
+                MySqlCommand mycomand = new MySqlCommand(query, conn);
+                mycomand.Parameters.AddWithValue("@param_Tipo", pTipo);
+                myreader = mycomand.ExecuteReader();
+            }
+            catch (MySqlException ex) { myreader = null; }
+            return myreader;
+        }
+    }
+	
+	

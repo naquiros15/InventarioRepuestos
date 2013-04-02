@@ -51,7 +51,7 @@
                     <asp:Label ID="Label2" runat="server" Text="Identificación:"></asp:Label>
                 </td>
                 <td align="right" class="style2">
-                    <asp:TextBox ID="TextBoxParte" runat="server" Height="22px" Width="128px"></asp:TextBox>
+                    <asp:TextBox ID="TextBoxId" runat="server" Height="22px" Width="128px"></asp:TextBox>
                 </td>
                 <td>
                     &nbsp;</td>
@@ -61,7 +61,7 @@
                     <asp:Label ID="Label3" runat="server" Text="Teléfono:"></asp:Label>
                 </td>
                 <td align="right" class="style2">
-                    <asp:TextBox ID="TextBoxParte0" runat="server" Height="22px" Width="128px"></asp:TextBox>
+                    <asp:TextBox ID="TextBoxTel" runat="server" Height="22px" Width="128px"></asp:TextBox>
                 </td>
                 <td>
                     &nbsp;</td>
@@ -71,7 +71,7 @@
                     <asp:Label ID="Label7" runat="server" Text="Celular:"></asp:Label>
                 </td>
                 <td align="right" class="style2">
-                    <asp:TextBox ID="TextBoxParte1" runat="server" Height="22px" Width="128px"></asp:TextBox>
+                    <asp:TextBox ID="TextBoxCel" runat="server" Height="22px" Width="128px"></asp:TextBox>
                 </td>
                 <td>
                     &nbsp;</td>
@@ -81,7 +81,7 @@
                     <asp:Label ID="Label4" runat="server" Text="Dirección:"></asp:Label>
                 </td>
                 <td align="right" class="style2">
-                    <asp:TextBox ID="TextBoxParte2" runat="server" Height="22px" Width="128px"></asp:TextBox>
+                    <asp:TextBox ID="TextBoxDir" runat="server" Height="22px" Width="128px"></asp:TextBox>
                 </td>
                 <td>
                     &nbsp;</td>
@@ -91,9 +91,7 @@
                     <asp:Label ID="Label5" runat="server" Text="Tipo:"></asp:Label>
                 </td>
                 <td align="right" class="style2">
-                    <asp:DropDownList ID="DropDownListAnio" runat="server" Width="128px" 
-                        Height="22px">
-                    </asp:DropDownList>
+                    <asp:TextBox ID="TextBoxTipo" runat="server" Height="22px" Width="128px"></asp:TextBox>
                 </td>
                 <td>
                     &nbsp;</td>

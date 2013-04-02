@@ -62,7 +62,7 @@
                     <asp:GridView ID="GridViewRepuestos" runat="server" align="center" 
                         BackColor="White" BorderColor="#999999" 
                         BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Vertical" 
-                        AutoGenerateEditButton="True">
+                        AutoGenerateEditButton="True" onrowupdated="eventoEditarRepuesto">
                         <AlternatingRowStyle BackColor="#DCDCDC" />
                         <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
                         <HeaderStyle BackColor="#000084" Font-Bold="True" ForeColor="White" />

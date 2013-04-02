@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="factura.aspx.cs" Inherits="Interfaz.Gestion_Repuestos.factura" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="factura.aspx.cs" Inherits="Interfaz.Facturación.factura" %>
 
 <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="asp" %>
 
@@ -55,7 +55,7 @@
                     <asp:Label ID="Label1" runat="server" Text="Cliente:"></asp:Label>
                 </td>
                 <td align="right" class="style2">
-                    <asp:DropDownList ID="DropDownListVehiculo" runat="server" Height="22px" 
+                    <asp:DropDownList ID="DropDownListCliente" runat="server" Height="22px" 
                         Width="128px">
                     </asp:DropDownList>
                 </td>
@@ -70,7 +70,7 @@
                     <asp:Label ID="Label2" runat="server" Text="Estado:"></asp:Label>
                 </td>
                 <td align="right" class="style2">
-                    <asp:DropDownList ID="DropDownListVehiculo0" runat="server" Height="22px" 
+                    <asp:DropDownList ID="DropDownListEstado" runat="server" Height="22px" 
                         Width="128px">
                     </asp:DropDownList>
                 </td>
@@ -82,7 +82,8 @@
                     <asp:Label ID="Label10" runat="server" Text="Cantidad:"></asp:Label>
                 </td>
                 <td align="right" class="style2">
-                    <asp:DropDownList ID="DropDownList1" runat="server" Height="22px" Width="128px">
+                    <asp:DropDownList ID="DropDownListCantidad" runat="server" Height="22px" 
+                        Width="128px">
                     </asp:DropDownList>
                 </td>
                 <td>
@@ -93,7 +94,7 @@
                     <asp:Label ID="Label4" runat="server" Text="Fecha:"></asp:Label>
                 </td>
                 <td align="right" class="style2">
-                    <asp:Label ID="Label9" runat="server" Text="Label"></asp:Label>
+                    <asp:Label ID="LabelFecha" runat="server" Text="Label"></asp:Label>
                 </td>
                 <td>
                     &nbsp;</td>
@@ -128,7 +129,7 @@
                     <asp:Label ID="Label3" runat="server" Text="Monto:"></asp:Label>
                 </td>
                 <td align="right" class="style2">
-                    <asp:Label ID="Label8" runat="server" Text="Label"></asp:Label>
+                    <asp:Label ID="LabelMonto" runat="server" Text="Label"></asp:Label>
                 </td>
                 <td>
                     &nbsp;</td>
@@ -144,7 +145,7 @@
             <tr>
                 <td align="right"class="style1">
                     <asp:Button ID="ButtonAgregar0" runat="server" Height="26px" Text="Guardar" 
-                        Width="67px" onclick="ButtonAgregar0_Click" />
+                        Width="67px" onclick="ButtonGuardar_Click" />
                 </td>
                 <td class="style2">
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;

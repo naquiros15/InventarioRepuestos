@@ -10,7 +10,7 @@
 namespace Interfaz.Gestion_Repuestos {
     
     
-    public partial class borrarRespuesto {
+    public partial class borrarRepuesto {
         
         /// <summary>
         /// Control form1.
@@ -22,6 +22,15 @@ namespace Interfaz.Gestion_Repuestos {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
+        /// Control ToolkitScriptManager1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ToolkitScriptManager ToolkitScriptManager1;
+        
+        /// <summary>
         /// Control GridViewRepuestos.
         /// </summary>
         /// <remarks>
@@ -31,12 +40,12 @@ namespace Interfaz.Gestion_Repuestos {
         protected global::System.Web.UI.WebControls.GridView GridViewRepuestos;
         
         /// <summary>
-        /// Control ButtonAgregar.
+        /// Control ButtonVolver.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonAgregar;
+        protected global::System.Web.UI.WebControls.Button ButtonVolver;
     }
 }

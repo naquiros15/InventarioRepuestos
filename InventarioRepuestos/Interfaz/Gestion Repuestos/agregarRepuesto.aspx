@@ -61,7 +61,7 @@
                 </td>
                 <td align="right" class="style2">
                     <asp:DropDownList ID="DropDownListTipo" runat="server" Width="128px" 
-                        Height="22px">
+                        Height="22px" AutoPostBack="True">
                     </asp:DropDownList>
                 </td>
                 <td>
@@ -73,7 +73,8 @@
                 </td>
                 <td align="right" class="style2">
                     <asp:DropDownList ID="DropDownListMarca" runat="server" Width="128px" 
-                        Height="22px">
+                        Height="22px" AutoPostBack="True" 
+                        onselectedindexchanged="DropDownListMarca_SelectedIndexChanged">
                     </asp:DropDownList>
                 </td>
                 <td>
@@ -85,7 +86,29 @@
                 </td>
                 <td align="right" class="style2">
                     <asp:DropDownList ID="DropDownListModelo" runat="server" Width="128px" 
-                        Height="22px">
+                        Height="22px" AutoPostBack="True">
+                    </asp:DropDownList>
+                </td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right"class="style1">
+                    Combustible:</td>
+                <td align="right" class="style2">
+                    <asp:DropDownList ID="DropDownListCombustible" runat="server" Width="128px" 
+                        Height="22px" AutoPostBack="True">
+                    </asp:DropDownList>
+                </td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right"class="style1">
+                    Estilo:</td>
+                <td align="right" class="style2">
+                    <asp:DropDownList ID="DropDownListEstilo" runat="server" Width="128px" 
+                        Height="22px" AutoPostBack="True">
                     </asp:DropDownList>
                 </td>
                 <td>
@@ -97,7 +120,7 @@
                 </td>
                 <td align="right" class="style2">
                     <asp:DropDownList ID="DropDownListAnio" runat="server" Width="128px" 
-                        Height="22px">
+                        Height="22px" AutoPostBack="True">
                     </asp:DropDownList>
                 </td>
                 <td>
@@ -149,7 +172,7 @@
                     <asp:Button ID="ButtonAgregar" runat="server" Height="26px" Text="Agregar" 
                         Width="67px" onclick="ButtonAgregar_Click" />
                 </td>
-                <td align="right" class="style2">
+                <td class="style2">
                     <asp:Button ID="ButtonCancelar"  align="right" runat="server" Height="26px" Text="Cancelar" 
                         Width="67px" onclick="ButtonCancelar_Click" />
                 </td>

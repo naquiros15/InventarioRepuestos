@@ -94,6 +94,24 @@ namespace Interfaz.Gestion_Repuestos {
         protected global::System.Web.UI.WebControls.DropDownList DropDownListModelo;
         
         /// <summary>
+        /// Control DropDownListCombustible.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListCombustible;
+        
+        /// <summary>
+        /// Control DropDownListEstilo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListEstilo;
+        
+        /// <summary>
         /// Control Label5.
         /// </summary>
         /// <remarks>

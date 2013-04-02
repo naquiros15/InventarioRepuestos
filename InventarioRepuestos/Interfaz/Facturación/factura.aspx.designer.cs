@@ -7,7 +7,7 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Interfaz.Gestion_Repuestos {
+namespace Interfaz.Facturacion {
     
     
     public partial class factura {
@@ -40,13 +40,13 @@ namespace Interfaz.Gestion_Repuestos {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// Control DropDownListVehiculo.
+        /// Control DropDownListCliente.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownListVehiculo;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListCliente;
         
         /// <summary>
         /// Control ButtonAgregar.
@@ -67,13 +67,13 @@ namespace Interfaz.Gestion_Repuestos {
         protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
-        /// Control DropDownListVehiculo0.
+        /// Control DropDownListEstado.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownListVehiculo0;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListEstado;
         
         /// <summary>
         /// Control Label10.
@@ -85,13 +85,13 @@ namespace Interfaz.Gestion_Repuestos {
         protected global::System.Web.UI.WebControls.Label Label10;
         
         /// <summary>
-        /// Control DropDownList1.
+        /// Control DropDownListCantidad.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListCantidad;
         
         /// <summary>
         /// Control Label4.
@@ -103,13 +103,13 @@ namespace Interfaz.Gestion_Repuestos {
         protected global::System.Web.UI.WebControls.Label Label4;
         
         /// <summary>
-        /// Control Label9.
+        /// Control LabelFecha.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label9;
+        protected global::System.Web.UI.WebControls.Label LabelFecha;
         
         /// <summary>
         /// Control Label5.
@@ -139,13 +139,13 @@ namespace Interfaz.Gestion_Repuestos {
         protected global::System.Web.UI.WebControls.Label Label3;
         
         /// <summary>
-        /// Control Label8.
+        /// Control LabelMonto.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label8;
+        protected global::System.Web.UI.WebControls.Label LabelMonto;
         
         /// <summary>
         /// Control ButtonAgregar0.
