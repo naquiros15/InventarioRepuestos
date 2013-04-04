@@ -36,13 +36,14 @@ namespace Interfaz.Consultas
                 DropDownListModelos.DataBind();
                 DropDownListMarcas.DataSource = _Logica.obtenerMarca();
                 DropDownListMarcas.DataBind();
+                MultiView1.ActiveViewIndex = 4;
+                LinkButton1.BackColor = System.Drawing.Color.LightGray;
+                LinkButton2.BackColor = System.Drawing.Color.White;
+                LinkButton3.BackColor = System.Drawing.Color.White;
+                LinkButton4.BackColor = System.Drawing.Color.White;
+                LinkButton5.BackColor = System.Drawing.Color.White;
             }
-            MultiView1.ActiveViewIndex = 4;
-            LinkButton1.BackColor = System.Drawing.Color.LightGray;
-            LinkButton2.BackColor = System.Drawing.Color.White;
-            LinkButton3.BackColor = System.Drawing.Color.White;
-            LinkButton4.BackColor = System.Drawing.Color.White;
-            LinkButton5.BackColor = System.Drawing.Color.White;
+            
         }
 
         protected void botonRegresar_Click(object sender, EventArgs e)
@@ -52,6 +53,8 @@ namespace Interfaz.Consultas
 
         protected void LinkButton1_Click(object sender, EventArgs e)
         {
+            GridView1.DataSource = "";
+            GridView1.DataBind();
             MultiView1.ActiveViewIndex = 4;
             LinkButton1.BackColor = System.Drawing.Color.LightGray;
             LinkButton2.BackColor = System.Drawing.Color.White;
@@ -63,6 +66,8 @@ namespace Interfaz.Consultas
 
         protected void LinkButton2_Click(object sender, EventArgs e)
         {
+            GridView1.DataSource = "";
+            GridView1.DataBind();
             MultiView1.ActiveViewIndex = 3;
             LinkButton1.BackColor = System.Drawing.Color.White;
             LinkButton2.BackColor = System.Drawing.Color.LightGray;
@@ -74,6 +79,8 @@ namespace Interfaz.Consultas
 
         protected void LinkButton3_Click(object sender, EventArgs e)
         {
+            GridView1.DataSource = "";
+            GridView1.DataBind();
             MultiView1.ActiveViewIndex = 2;
             LinkButton1.BackColor = System.Drawing.Color.White;
             LinkButton2.BackColor = System.Drawing.Color.White;
@@ -85,6 +92,8 @@ namespace Interfaz.Consultas
 
         protected void LinkButton4_Click(object sender, EventArgs e)
         {
+            GridView1.DataSource = "";
+            GridView1.DataBind();
             MultiView1.ActiveViewIndex = 1;
             LinkButton1.BackColor = System.Drawing.Color.White;
             LinkButton2.BackColor = System.Drawing.Color.White;
@@ -96,6 +105,8 @@ namespace Interfaz.Consultas
 
         protected void LinkButton5_Click(object sender, EventArgs e)
         {
+            GridView1.DataSource = "";
+            GridView1.DataBind();
             MultiView1.ActiveViewIndex = 0;
             LinkButton1.BackColor = System.Drawing.Color.White;
             LinkButton2.BackColor = System.Drawing.Color.White;
@@ -128,22 +139,32 @@ namespace Interfaz.Consultas
 
         protected void botonBuscar2_Click(object sender, EventArgs e)
         {
-            _Logica.PorModelo(DropDownListModelos.SelectedIndex);
+            GridView1.DataSource = _Logica.PorModelo(DropDownListModelos.SelectedValue);
+            GridView1.DataBind();
         }
 
         protected void botonBuscar1_Click(object sender, EventArgs e)
         {
-            _Logica.PorMarca(DropDownListMarcas.SelectedIndex);
+            GridView1.DataSource = _Logica.PorMarca(DropDownListMarcas.SelectedValue);
+            GridView1.DataBind();
         }
 
         protected void botonBuscar0_Click(object sender, EventArgs e)
         {
-           _Logica.PorDescripcion(DropDownListDescripcion.SelectedIndex);
+            GridView1.DataSource = _Logica.PorDescripcion(DropDownListDescripcion.SelectedValue);
+            GridView1.DataBind();
         }
 
         protected void botonFacturar_Click(object sender, EventArgs e)
         {
             Response.Redirect("../Facturación/factura.aspx");
+        }
+
+        protected void GridView1_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
+        {
+            //int idrepuesto = e.NewSelectedIndex;
+            /*int idRepuesto = Convert.ToInt32(GridView1.DataKeys[e.NewSelectedIndex].Value);
+            Response.Redirect(string.Format("../Facturación/factura.aspx?id={0}", idRepuesto));*/
         }
 
     }

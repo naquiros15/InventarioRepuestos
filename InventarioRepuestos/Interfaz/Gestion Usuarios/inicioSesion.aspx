@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="inicioSesion.aspx.cs" Inherits="Interfaz.Gestion_Usuarios.inicioSesion" %>
 
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="asp" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -48,10 +50,12 @@
             </tr>
             <tr>
                 <td align="right" class="style1">
+                    <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
+                    </asp:ToolkitScriptManager>
                     <asp:Label ID="Label2" runat="server" Text="Nombre de Usuario:"></asp:Label>
                 </td>
                 <td align="right" class="style2">
-                    <asp:TextBox ID="TextBoxParte" runat="server" Height="22px" Width="128px"></asp:TextBox>
+                    <asp:TextBox ID="TextBoxUsuario" runat="server" Height="22px" Width="128px"></asp:TextBox>
                 </td>
                 <td>
                     &nbsp;</td>
@@ -61,7 +65,8 @@
                     <asp:Label ID="Label3" runat="server" Text="Contraseña:"></asp:Label>
                 </td>
                 <td align="right" class="style2">
-                    <asp:TextBox ID="TextBoxParte0" runat="server" Height="22px" Width="128px"></asp:TextBox>
+                    <asp:TextBox ID="TextBoxClave" runat="server" Height="22px" Width="128px" 
+                        TextMode="Password"></asp:TextBox>
                 </td>
                 <td>
                     &nbsp;</td>

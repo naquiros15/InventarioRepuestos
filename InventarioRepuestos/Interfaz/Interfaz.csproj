@@ -66,7 +66,6 @@
     <Content Include="Facturación\factura.aspx" />
     <Content Include="Gestion Usuarios\inicioSesion.aspx" />
     <Content Include="Gestion Usuarios\registro.aspx" />
-    <Content Include="Inventario\ActualizarInventario.aspx" />
     <Content Include="menuProvisional.aspx" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
@@ -183,13 +182,6 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="Inventario\ActualizarInventario.aspx.cs">
-      <DependentUpon>ActualizarInventario.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Inventario\ActualizarInventario.aspx.designer.cs">
-      <DependentUpon>ActualizarInventario.aspx</DependentUpon>
     </Compile>
     <Compile Include="menuProvisional.aspx.cs">
       <DependentUpon>menuProvisional.aspx</DependentUpon>

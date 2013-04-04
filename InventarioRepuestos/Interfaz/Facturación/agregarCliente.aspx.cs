@@ -25,7 +25,7 @@ namespace Interfaz.Facturacion
         protected void ButtonAgregar_Click(object sender, EventArgs e)
         {
             agregarClienteNuevo();
-            Response.Redirect("../menuProvisional.aspx");
+            Response.Redirect("factura.aspx");
         }
 
         protected void ButtonCancelar_Click(object sender, EventArgs e)

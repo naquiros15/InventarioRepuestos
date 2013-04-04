@@ -294,7 +294,8 @@
                             <td class="style8" align="center">
                                 <asp:GridView ID="GridView1" runat="server" BackColor="White" 
                                     BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" 
-                                    GridLines="Vertical">
+                                    GridLines="Vertical" AutoGenerateSelectButton="True" 
+                                    onselectedindexchanging="GridView1_SelectedIndexChanging">
                                     <AlternatingRowStyle BackColor="#DCDCDC" />
                                     <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
                                     <HeaderStyle BackColor="#000084" Font-Bold="True" ForeColor="White" />

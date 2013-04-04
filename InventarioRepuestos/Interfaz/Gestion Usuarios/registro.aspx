@@ -51,7 +51,7 @@
                     <asp:Label ID="Label2" runat="server" Text="Nombre:"></asp:Label>
                 </td>
                 <td align="right" class="style2">
-                    <asp:TextBox ID="TextBoxParte" runat="server" Height="22px" Width="128px"></asp:TextBox>
+                    <asp:TextBox ID="TextBoxNombre" runat="server" Height="22px" Width="128px"></asp:TextBox>
                 </td>
                 <td>
                     &nbsp;</td>
@@ -61,7 +61,7 @@
                     <asp:Label ID="Label3" runat="server" Text="Apellido:"></asp:Label>
                 </td>
                 <td align="right" class="style2">
-                    <asp:TextBox ID="TextBoxParte0" runat="server" Height="22px" Width="128px"></asp:TextBox>
+                    <asp:TextBox ID="TextBoxApellido" runat="server" Height="22px" Width="128px"></asp:TextBox>
                 </td>
                 <td>
                     &nbsp;</td>
@@ -71,7 +71,7 @@
                     <asp:Label ID="Label7" runat="server" Text="Usuario:"></asp:Label>
                 </td>
                 <td align="right" class="style2">
-                    <asp:TextBox ID="TextBoxParte1" runat="server" Height="22px" Width="128px"></asp:TextBox>
+                    <asp:TextBox ID="TextBoxUsuario" runat="server" Height="22px" Width="128px"></asp:TextBox>
                 </td>
                 <td>
                     &nbsp;</td>
@@ -81,7 +81,8 @@
                     <asp:Label ID="Label4" runat="server" Text="Contraseña:"></asp:Label>
                 </td>
                 <td align="right" class="style2">
-                    <asp:TextBox ID="TextBoxParte2" runat="server" Height="22px" Width="128px"></asp:TextBox>
+                    <asp:TextBox ID="TextBoxContraseña" runat="server" Height="22px" Width="128px" 
+                        TextMode="Password"></asp:TextBox>
                 </td>
                 <td>
                     &nbsp;</td>

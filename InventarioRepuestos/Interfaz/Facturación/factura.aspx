@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="factura.aspx.cs" Inherits="Interfaz.Facturación.factura" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="factura.aspx.cs" Inherits="Interfaz.Facturacion.factura" %>
 
 <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="asp" %>
 
@@ -83,7 +83,8 @@
                 </td>
                 <td align="right" class="style2">
                     <asp:DropDownList ID="DropDownListCantidad" runat="server" Height="22px" 
-                        Width="128px">
+                        Width="128px" AutoPostBack="True" 
+                        onselectedindexchanged="DropDownListCantidad_SelectedIndexChanged">
                     </asp:DropDownList>
                 </td>
                 <td>

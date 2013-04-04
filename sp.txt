@@ -93,6 +93,7 @@ insert into vehiculos (IdMarca, IdModelo, IdCombustible, IdEstilo, Ano, Descripc
 
 
 Insert into repuestos (IdVehiculo, NumeroParte, IdTipo, Inventario, Descripcion, PrecioUnitario) select (Select IdVehiculo from vehiculos where IdMarca = '20' AND IdModelo = '77' AND IdEstilo = '2' AND Ano = '1995' AND IdCombustible = '1'), '98765',(Select IdTipo from tiporepuestos where IdTipo = '2'), '20','descripcion', '45000';
+Insert into repuestos (IdVehiculo, NumeroParte, IdTipo, Inventario, Descripcion, PrecioUnitario) select (Select IdVehiculo from vehiculos where IdMarca = '18' AND IdModelo = '75' AND IdEstilo = '1' AND Ano = '2005' AND IdCombustible = '2'), '12345',(Select IdTipo from tiporepuestos where IdTipo = '1'), '15','descripcion', '65000';
 
 "Insert into repuestos (IdVehiculo, NumeroParte, IdTipo, Inventario, Descripcion, PrecioUnitario) select (Select IdVehiculo from vehiculos where IdMarca = @param_Marca AND IdModelo = @param_Modelo AND IdEstilo = @param_Estilo AND Ano = @param_Anio AND IdCombustible = @param_Combustible), @param_Parte,(Select IdTipo from tiporepuestos where IdTipo = @param_Tipo), @param_Inventario,@param_Descripcion, @param_Precio";
 
@@ -117,25 +118,30 @@ marcas.IdMarca
 
 
 
- public static MySqlDataReader obtenerRepuestosPorVehiculo(int pTipo)
-        {
-            MySqlConnection conn = new MySqlConnection(AccesoDatos._Connection);
-            MySqlDataReader myreader;
-            conn.Open();
-            try
-            {
-                string query = "select repuestos.NumeroParte, tiporepuestos.Descripcion, marcas.Descripcion, modelos.Descripcion, estilos.Descripcion, combustibles.Descripcion,"+ 
-"repuestos.Inventario, repuestos.PrecioUnitario, repuestos.Descripcion, vehiculos.Ano from repuestos inner join tiporepuestos ON tiporepuestos.IdTipo "+
-"= @param_Tipo inner join vehiculos ON repuestos.IdVehiculo = vehiculos.IdVehiculo  inner join modelos ON vehiculos.IdModelo = modelos.IdModelo " +
-"inner join marcas ON marcas.IdMarca = modelos.IdMarca and vehiculos.IdMarca = marcas.IdMarca  inner join estilos ON vehiculos.IdEstilo = estilos.IdEstilo inner join combustibles ON "+
-"vehiculos.IdCombustible = combustibles.IdCombustible";
-                MySqlCommand mycomand = new MySqlCommand(query, conn);
-                mycomand.Parameters.AddWithValue("@param_Tipo", pTipo);
-                myreader = mycomand.ExecuteReader();
-            }
-            catch (MySqlException ex) { myreader = null; }
-            return myreader;
-        }
-    }
-	
+select repuestos.NumeroParte, tipoRepuestos.Descripcion, marcas.Descripcion, modelos.Descripcion, estilos.Descripcion, combustibles.Descripcion,
+repuestos.Inventario, repuestos.PrecioUnitario, vehiculos.Ano from repuestos inner join tiporepuestos ON tiporepuestos.IdTipo
+= repuestos.IdTipo and repuestos.Descripcion = 'descripcion' inner join vehiculos ON repuestos.IdVehiculo = vehiculos.IdVehiculo  inner join modelos ON vehiculos.IdModelo = modelos.IdModelo
+inner join marcas ON marcas.IdMarca = modelos.IdMarca and vehiculos.IdMarca = marcas.IdMarca  inner join estilos ON vehiculos.IdEstilo = estilos.IdEstilo inner join combustibles ON
+vehiculos.IdCombustible = combustibles.IdCombustible
+				 
+				 
+select repuestos.NumeroParte, marcas.Descripcion, modelos.Descripcion, estilos.Descripcion, combustibles.Descripcion,
+repuestos.Inventario, repuestos.PrecioUnitario, repuestos.Descripcion, vehiculos.Ano from repuestos inner join tiporepuestos ON tiporepuestos.IdTipo
+= repuestos.IdTipo inner join vehiculos ON repuestos.IdVehiculo = vehiculos.IdVehiculo  inner join modelos ON '77' = modelos.IdModelo
+inner join marcas ON marcas.IdMarca = modelos.IdMarca and vehiculos.IdMarca = marcas.IdMarca  inner join estilos ON vehiculos.IdEstilo = estilos.IdEstilo inner join combustibles ON
+vehiculos.IdCombustible = combustibles.IdCombustible
+
+select repuestos.NumeroParte, tipoRepuestos.Descripcion, marcas.Descripcion, modelos.Descripcion, estilos.Descripcion, combustibles.Descripcion,
+repuestos.Inventario, repuestos.PrecioUnitario, repuestos.Descripcion, vehiculos.Ano from repuestos inner join tiporepuestos ON tiporepuestos.IdTipo 
+= repuestos.IdTipo and repuestos.IdRepuesto = '7' inner join vehiculos ON repuestos.IdVehiculo = vehiculos.IdVehiculo  inner join modelos ON vehiculos.IdModelo = modelos.IdModelo 
+inner join marcas ON marcas.IdMarca = modelos.IdMarca and vehiculos.IdMarca = marcas.IdMarca  inner join estilos ON vehiculos.IdEstilo = estilos.IdEstilo inner join combustibles ON 
+vehiculos.IdCombustible = combustibles.IdCombustible
+
+
+
+Insert into facturas (IdCliente, Estado, Monto, Fecha, IdUsuarioFactura) values ('3','pendiente','90000','2013/04/03','1') 
+insert into facturadetalles (IdFactura, IdRepuesto, Monto, Cantidad) select (select max(IdFactura) from facturas), '8', '90000', '2'
+
+
+Insert into facturas (IdCliente, Estado, Monto, Fecha, IdUsuarioFactura) values ('3','Pago Pendiente','135000','2013/04/03','1')
 	

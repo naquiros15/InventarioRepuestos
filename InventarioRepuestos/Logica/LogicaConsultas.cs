@@ -16,6 +16,9 @@ namespace Logica
         List<RepuestoD> _ListaRepuestos;
         List<RepuestoVehiculos> _ListaRepuestosV;
         List<RepuestoT> _ListaRepuestosT;
+        List<RepuestoM> _ListaRepuestosM;
+        List<RepuestoMa> _ListaRepuestosMa;
+        List<RepuestoDe> _ListaRepuestosDe;
         List<int> _ListaIdRepuestos;
         private Repuesto _RepuestoNuevo;
         bool banderaError;
@@ -48,6 +51,24 @@ namespace Logica
         {
             get { return _ListaRepuestosT; }
             set { _ListaRepuestosT = value; }
+        }
+
+        private List<RepuestoM> ListaRepuestosM
+        {
+          get { return _ListaRepuestosM; }
+          set { _ListaRepuestosM = value; }
+        }
+
+        private List<RepuestoMa> ListaRepuestosMa
+        {
+          get { return _ListaRepuestosMa; }
+          set { _ListaRepuestosMa = value; }
+        }
+
+        private List<RepuestoDe> ListaRepuestosDe
+        {
+          get { return _ListaRepuestosDe; }
+          set { _ListaRepuestosDe = value; }
         }
         #endregion
 
@@ -212,19 +233,85 @@ namespace Logica
         }
         #endregion
 
-        public void PorDescripcion(int p)
+        public object PorDescripcion(string pDescripcion)
         {
-            throw new NotImplementedException();
+            int cuenta;
+            _ListaRepuestosDe = new List<RepuestoDe>();
+            MySqlDataReader myreader;
+            try
+            {
+                myreader = AccesoDatosConsultas.obtenerRepuestosPorDescripcion(pDescripcion);
+                while (myreader.Read())
+                {
+                    cuenta = _ListaRepuestosDe.Count;
+                    _ListaRepuestosDe.Add(new RepuestoDe());
+                    _ListaRepuestosDe.ElementAt(cuenta).NumeroParte = (int)myreader[0];
+                    _ListaRepuestosDe.ElementAt(cuenta).Tipo = myreader[1].ToString();
+                    _ListaRepuestosDe.ElementAt(cuenta).Marca = myreader[2].ToString();
+                    _ListaRepuestosDe.ElementAt(cuenta).Modelo = myreader[3].ToString();
+                    _ListaRepuestosDe.ElementAt(cuenta).Estilo = myreader[4].ToString(); ;
+                    _ListaRepuestosDe.ElementAt(cuenta).Combustible = myreader[5].ToString();
+                    _ListaRepuestosDe.ElementAt(cuenta).Inventario = (int)myreader[6];
+                    _ListaRepuestosDe.ElementAt(cuenta).Precio = (decimal)myreader[7];
+                    _ListaRepuestosDe.ElementAt(cuenta).Año = (int)myreader[8];
+                }
+                return _ListaRepuestosDe;
+            }
+            catch (Exception ex) { return null; }
         }
 
-        public void PorMarca(int p)
+        public object PorMarca(string pMarca)
         {
-            throw new NotImplementedException();
+             int cuenta;
+            _ListaRepuestosMa = new List<RepuestoMa>();
+            MySqlDataReader myreader;
+            try
+            {
+                myreader = AccesoDatosConsultas.obtenerRepuestosPorMarca(pMarca);
+                while (myreader.Read())
+                {
+                    cuenta = _ListaRepuestosMa.Count;
+                    _ListaRepuestosMa.Add(new RepuestoMa());
+                    _ListaRepuestosMa.ElementAt(cuenta).NumeroParte = (int)myreader[0];
+                    _ListaRepuestosMa.ElementAt(cuenta).Tipo = myreader[1].ToString();
+                    _ListaRepuestosMa.ElementAt(cuenta).Modelo = myreader[2].ToString();
+                    _ListaRepuestosMa.ElementAt(cuenta).Estilo = myreader[3].ToString(); ;
+                    _ListaRepuestosMa.ElementAt(cuenta).Combustible = myreader[4].ToString();
+                    _ListaRepuestosMa.ElementAt(cuenta).Inventario = (int)myreader[5];
+                    _ListaRepuestosMa.ElementAt(cuenta).Precio = (decimal)myreader[6];
+                    _ListaRepuestosMa.ElementAt(cuenta).Descripcion = myreader[7].ToString();
+                    _ListaRepuestosMa.ElementAt(cuenta).Año = (int)myreader[8];
+                }
+                return _ListaRepuestosMa;
+            }
+            catch (Exception ex) { return null; }
         }
 
-        public void PorModelo(int p)
+        public Object PorModelo(string pModelo)
         {
-            throw new NotImplementedException();
+            int cuenta;
+            _ListaRepuestosM = new List<RepuestoM>();
+            MySqlDataReader myreader;
+            try
+            {
+                myreader = AccesoDatosConsultas.obtenerRepuestosPorModelo(pModelo);
+                while (myreader.Read())
+                {
+                    cuenta = _ListaRepuestosM.Count;
+                    _ListaRepuestosM.Add(new RepuestoM());
+                    _ListaRepuestosM.ElementAt(cuenta).NumeroParte = (int)myreader[0];
+                    _ListaRepuestosM.ElementAt(cuenta).Tipo = myreader[1].ToString();
+                    _ListaRepuestosM.ElementAt(cuenta).Marca = myreader[2].ToString();
+                    _ListaRepuestosM.ElementAt(cuenta).Estilo = myreader[3].ToString(); ;
+                    _ListaRepuestosM.ElementAt(cuenta).Combustible = myreader[4].ToString();
+                    _ListaRepuestosM.ElementAt(cuenta).Inventario = (int)myreader[5];
+                    _ListaRepuestosM.ElementAt(cuenta).Precio = (decimal)myreader[6];
+                    _ListaRepuestosM.ElementAt(cuenta).Descripcion = myreader[7].ToString();
+                    _ListaRepuestosM.ElementAt(cuenta).Año = (int)myreader[8];
+                }
+                return _ListaRepuestosM;
+            }
+            catch (Exception ex) { return null; }
         }
 
         public Object PorTipo(int pTipo)

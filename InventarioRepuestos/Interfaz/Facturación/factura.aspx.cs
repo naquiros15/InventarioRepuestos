@@ -12,21 +12,27 @@ namespace Interfaz.Facturacion
     {
         #region atributos
         private static LogicaFacturacion _Logica = new LogicaFacturacion();
+        int idRepuesto = 7;
         #endregion
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            DropDownListCliente.DataSource = _Logica.obtenerClientes();
-            DropDownListCliente.DataBind();
-            List<string> Estado;
-            Estado = new List<string>();
-            Estado.Add("Pago cancelado");
-            Estado.Add("Pago Pendiente");
-            DropDownListEstado.DataSource = Estado;
-            DropDownListEstado.DataBind();
-            /*DropDownListCantidad.DataSource = _Logica.obtenerCantidad();
-            DropDownListCantidad.DataBind();*/
-            LabelFecha.Text = _Logica.obtenerFecha();
+            if (!IsPostBack)
+            {
+                GridViewRespuestos.DataSource = _Logica.obtenerRepuesto(7);
+                GridViewRespuestos.DataBind();
+                DropDownListCliente.DataSource = _Logica.obtenerClientes();
+                DropDownListCliente.DataBind();
+                List<string> Estado;
+                Estado = new List<string>();
+                Estado.Add("Pago cancelado");
+                Estado.Add("Pago Pendiente");
+                DropDownListEstado.DataSource = Estado;
+                DropDownListEstado.DataBind();
+                DropDownListCantidad.DataSource = _Logica.obtenerInventario();
+                DropDownListCantidad.DataBind();
+                LabelFecha.Text = _Logica.obtenerFecha();
+            }
         }
 
         protected void ButtonAgregar_Click(object sender, EventArgs e)
@@ -41,7 +47,19 @@ namespace Interfaz.Facturacion
 
         protected void ButtonGuardar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("../menuProvisional.aspx");
+            if (!_Logica.guardarFactura(DropDownListCliente.SelectedIndex+1, DropDownListEstado.SelectedValue, DropDownListCantidad.SelectedIndex+1, DateTime.Parse(LabelFecha.Text),Decimal.Parse(LabelMonto.Text), (int)Session["IdUsuario"], idRepuesto))
+            {
+                Response.Write("<SCRIPT>alert('Se ha agregado correctamente dentro del sistema.')</SCRIPT>");
+            }
+            else
+                Response.Write("<SCRIPT>alert('No se ha podido guardar la factura.')</SCRIPT>");
+        }
+
+        protected void DropDownListCantidad_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            decimal precio = _Logica.obtenerPrecio();
+            decimal Monto = Decimal.Parse(DropDownListCantidad.SelectedValue) * precio;
+            LabelMonto.Text = Monto.ToString();
         }
 
     }

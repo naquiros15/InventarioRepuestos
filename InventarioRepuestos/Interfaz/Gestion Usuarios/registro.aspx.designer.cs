@@ -31,13 +31,13 @@ namespace Interfaz.Gestion_Usuarios {
         protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
-        /// Control TextBoxParte.
+        /// Control TextBoxNombre.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxParte;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxNombre;
         
         /// <summary>
         /// Control Label3.
@@ -49,13 +49,13 @@ namespace Interfaz.Gestion_Usuarios {
         protected global::System.Web.UI.WebControls.Label Label3;
         
         /// <summary>
-        /// Control TextBoxParte0.
+        /// Control TextBoxApellido.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxParte0;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxApellido;
         
         /// <summary>
         /// Control Label7.
@@ -67,13 +67,13 @@ namespace Interfaz.Gestion_Usuarios {
         protected global::System.Web.UI.WebControls.Label Label7;
         
         /// <summary>
-        /// Control TextBoxParte1.
+        /// Control TextBoxUsuario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxParte1;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxUsuario;
         
         /// <summary>
         /// Control Label4.
@@ -85,13 +85,13 @@ namespace Interfaz.Gestion_Usuarios {
         protected global::System.Web.UI.WebControls.Label Label4;
         
         /// <summary>
-        /// Control TextBoxParte2.
+        /// Control TextBoxContraseña.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxParte2;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxContraseña;
         
         /// <summary>
         /// Control ButtonGuardar.
