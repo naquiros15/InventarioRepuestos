@@ -174,8 +174,11 @@ namespace Logica
             _FacturaNueva.Monto = pMonto;
             _FacturaNueva.UsuarioFactura = pUsuarioFactura;
             _FacturaNueva.IdRepuesto = pIdRepuesto;
-            if(!AccesoDatosFacturacion.agregarFactura(_FacturaNueva) && !AccesoDatosFacturacion.agregarFacturaDetalles(_FacturaNueva))
+            if (!AccesoDatosFacturacion.agregarFactura(_FacturaNueva) && !AccesoDatosFacturacion.agregarFacturaDetalles(_FacturaNueva))
+            {
+                AccesoDatosFacturacion.decrementarInventario(_FacturaNueva);
                 return false;
+            }
             else
                 return true;
         }

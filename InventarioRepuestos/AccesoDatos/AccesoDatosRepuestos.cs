@@ -131,28 +131,45 @@ namespace AccesoDatos
             return myreader;
         }
 
-        public static bool agregarRepuesto(Repuesto _RespuestoNuevo)
+        public static MySqlDataReader buscarIdVehiculo(Repuesto _RespuestoNuevo)
         {
             MySqlConnection conn = new MySqlConnection(AccesoDatos._Connection);
             MySqlDataReader myreader;
             conn.Open();
             try
             {
-                string query = "Insert into repuestos (idVehiculo, NumeroParte, IdTipo, Inventario, Descripcion, PrecioUnitario) "+
-                "select (Select IdVehiculo from vehiculos where IdMarca = @param_Marca AND IdModelo = @param_Modelo AND IdEstilo = " +
-                "@param_Estilo AND Ano = @param_Anio AND IdCombustible = @param_Combustible), @param_Parte,(Select IdTipo from "+
-                "tiporepuestos where IdTipo = @param_Tipo), @param_Inventario, @param_Descripcion, @param_Precio";
+                string query = "Select IdVehiculo from vehiculos where IdMarca = @param_Marca AND IdModelo = @param_Modelo AND IdEstilo = " +
+                "@param_Estilo AND Ano = @param_Anio AND IdCombustible = @param_Combustible";
                 MySqlCommand mycomand = new MySqlCommand(query, conn);
-                mycomand.Parameters.AddWithValue("@param_Parte", _RespuestoNuevo.NumeroParte);
-                mycomand.Parameters.AddWithValue("@param_Tipo", _RespuestoNuevo.IdTipo);
                 mycomand.Parameters.AddWithValue("@param_Marca", _RespuestoNuevo.IdMarca);
                 mycomand.Parameters.AddWithValue("@param_Modelo", _RespuestoNuevo.IdModelo);
                 mycomand.Parameters.AddWithValue("@param_Estilo", _RespuestoNuevo.IdEstilo);
                 mycomand.Parameters.AddWithValue("@param_Combustible", _RespuestoNuevo.IdCombustible);
+                mycomand.Parameters.AddWithValue("@param_Anio", _RespuestoNuevo.Anio);
+                myreader = mycomand.ExecuteReader();
+            }
+            catch (MySqlException ex) { myreader = null; }
+
+            return myreader;
+        }
+
+        public static bool insertarRepuesto(Repuesto _RespuestoNuevo, int IdVehiculo)
+        {
+            MySqlConnection conn = new MySqlConnection(AccesoDatos._Connection);
+            MySqlDataReader myreader;
+            conn.Open();
+            try
+            {
+                string query = "Insert into repuestos (idVehiculo, NumeroParte, IdTipo, Inventario, Descripcion, PrecioUnitario) " +
+                "select @param_IdVehiculo, @param_Parte,(Select IdTipo from " +
+                "tiporepuestos where IdTipo = @param_Tipo), @param_Inventario, @param_Descripcion, @param_Precio";
+                MySqlCommand mycomand = new MySqlCommand(query, conn);
+                mycomand.Parameters.AddWithValue("@param_Parte", _RespuestoNuevo.NumeroParte);
+                mycomand.Parameters.AddWithValue("@param_Tipo", _RespuestoNuevo.IdTipo);
                 mycomand.Parameters.AddWithValue("@param_Inventario", _RespuestoNuevo.Inventario);
                 mycomand.Parameters.AddWithValue("@param_Precio", _RespuestoNuevo.Precio);
                 mycomand.Parameters.AddWithValue("@param_Descripcion", _RespuestoNuevo.Descripcion);
-                mycomand.Parameters.AddWithValue("@param_Anio", _RespuestoNuevo.Anio);
+                mycomand.Parameters.AddWithValue("@param_IdVehiculo", IdVehiculo);
                 myreader = mycomand.ExecuteReader();
                 banderaError = false;
             }
@@ -171,6 +188,50 @@ namespace AccesoDatos
                 string query = "Delete from repuestos where IdRepuesto = @param_IdRepuesto";
                 MySqlCommand mycomand = new MySqlCommand(query, conn);
                 mycomand.Parameters.AddWithValue("@param_IdRepuesto", _IdRepuesto);
+                myreader = mycomand.ExecuteReader();
+                banderaError = false;
+            }
+            catch (MySqlException ex) { banderaError = true; }
+
+            return banderaError;
+        }
+
+        public static bool insertarVehiculo(Repuesto _RepuestoNuevo)
+        {
+            MySqlConnection conn = new MySqlConnection(AccesoDatos._Connection);
+            MySqlDataReader myreader;
+            conn.Open();
+            try
+            {
+                string query = "insert into vehiculos (IdMarca, IdModelo, IdCombustible, IdEstilo, Ano, Descripcion) values (@param_Marca,@param_Modelo, @param_Combustible,@param_Estilo,@param_Anio, 'Descripcion')" ;
+                MySqlCommand mycomand = new MySqlCommand(query, conn);
+                mycomand.Parameters.AddWithValue("@param_Marca", _RepuestoNuevo.IdMarca);
+                mycomand.Parameters.AddWithValue("@param_Modelo", _RepuestoNuevo.IdModelo);
+                mycomand.Parameters.AddWithValue("@param_Estilo", _RepuestoNuevo.IdEstilo);
+                mycomand.Parameters.AddWithValue("@param_Combustible", _RepuestoNuevo.IdCombustible);
+                mycomand.Parameters.AddWithValue("@param_Anio", _RepuestoNuevo.Anio);
+                myreader = mycomand.ExecuteReader();
+                banderaError = false;
+            }
+            catch (MySqlException ex) { banderaError = true; }
+            return banderaError;
+        }
+
+        public static bool insertarRepuestoNuevoVehiculo(Repuesto _RepuestoNuevo)
+        {
+            MySqlConnection conn = new MySqlConnection(AccesoDatos._Connection);
+            MySqlDataReader myreader;
+            conn.Open();
+            try
+            {
+                string query = "Insert into repuestos (idVehiculo, NumeroParte, idTipo, Inventario, Descripcion, PrecioUnitario) select (Select max(idVehiculo) " +
+                    "from vehiculos), @param_Parte,(Select IdTipo from tiporepuestos where IdTipo = @param_Tipo), @param_Inventario, @param_Descripcion, @param_Precio";
+                MySqlCommand mycomand = new MySqlCommand(query, conn);
+                mycomand.Parameters.AddWithValue("@param_Parte", _RepuestoNuevo.NumeroParte);
+                mycomand.Parameters.AddWithValue("@param_Tipo", _RepuestoNuevo.IdTipo);
+                mycomand.Parameters.AddWithValue("@param_Inventario", _RepuestoNuevo.Inventario);
+                mycomand.Parameters.AddWithValue("@param_Precio", _RepuestoNuevo.Precio);
+                mycomand.Parameters.AddWithValue("@param_Descripcion", _RepuestoNuevo.Descripcion);
                 myreader = mycomand.ExecuteReader();
                 banderaError = false;
             }

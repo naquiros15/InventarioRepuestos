@@ -47,8 +47,10 @@ namespace Interfaz.Facturacion
 
         protected void ButtonGuardar_Click(object sender, EventArgs e)
         {
-            if (!_Logica.guardarFactura(DropDownListCliente.SelectedIndex+1, DropDownListEstado.SelectedValue, DropDownListCantidad.SelectedIndex+1, DateTime.Parse(LabelFecha.Text),Decimal.Parse(LabelMonto.Text), (int)Session["IdUsuario"], idRepuesto))
+            if (!_Logica.guardarFactura(DropDownListCliente.SelectedIndex+1, DropDownListEstado.SelectedValue, DropDownListCantidad.SelectedIndex+1, 
+                DateTime.Parse(LabelFecha.Text),Decimal.Parse(LabelMonto.Text), (int)Session["idUsuario"], idRepuesto))
             {
+                //_Logica.decrementarInventario(DropDownListCantidad.SelectedIndex + 1);
                 Response.Write("<SCRIPT>alert('Se ha agregado correctamente dentro del sistema.')</SCRIPT>");
             }
             else

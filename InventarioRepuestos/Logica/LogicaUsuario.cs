@@ -32,7 +32,10 @@ namespace Logica
                     IdUsuarioActual = (int)myreader["IdUsuario"];
                 }
                 if (!(AccesoDatosUsuario.insertarFechaActual(pUsuario, pClave)) && IdUsuarioActual != -1)
+                {
+                    AccesoDatosUsuario.cambiarActivo(pUsuario, pClave);
                     return false;
+                }
                 else
                     return true;
             }
@@ -47,6 +50,11 @@ namespace Logica
             _UsuarioNuevo.Usuario1 = pUsuario;
             _UsuarioNuevo.Clave1 = pClave;
             return AccesoDatosUsuario.registrar(_UsuarioNuevo);
+        }
+
+        public void cerrarSesion(int IdUsuario)
+        {
+            AccesoDatosUsuario.cerrarSesion(IdUsuario);
         }
     }
 }

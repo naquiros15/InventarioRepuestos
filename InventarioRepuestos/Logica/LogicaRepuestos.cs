@@ -151,6 +151,8 @@ namespace Logica
 
         public Boolean agregarRespuesto(int numeroParte, int idTipo, int idMarca, int idModelo, int idEstilo, int idCombustible, int anio, int inventario, string descripcion, int precio)
         {
+            int idVehiculo = -1;
+
             _RepuestoNuevo = new Repuesto();
             _RepuestoNuevo.NumeroParte = numeroParte;
             _RepuestoNuevo.IdTipo = idTipo;
@@ -162,8 +164,22 @@ namespace Logica
             _RepuestoNuevo.Inventario = inventario;
             _RepuestoNuevo.Descripcion = descripcion;
             _RepuestoNuevo.Precio = (decimal)precio;
-            
-            return AccesoDatosRepuestos.agregarRepuesto(_RepuestoNuevo);
+
+            MySqlDataReader myreader;
+            myreader = AccesoDatosRepuestos.buscarIdVehiculo(_RepuestoNuevo);
+
+            while (myreader.Read())
+            {
+                idVehiculo = (int)myreader[0];
+            }
+            if(idVehiculo == -1)
+            {
+                AccesoDatosRepuestos.insertarVehiculo(_RepuestoNuevo);
+                return AccesoDatosRepuestos.insertarRepuestoNuevoVehiculo(_RepuestoNuevo);
+
+            }
+            else
+                return AccesoDatosRepuestos.insertarRepuesto(_RepuestoNuevo, idVehiculo) ;
         }
 
 

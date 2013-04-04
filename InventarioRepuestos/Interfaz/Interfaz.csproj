@@ -207,6 +207,10 @@
     <Content Include="Site.Master" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ClasesDominio\ClasesDominio.csproj">
+      <Project>{B06B446D-BF69-458D-BC41-83AB40FF9A85}</Project>
+      <Name>ClasesDominio</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Logica\Logica.csproj">
       <Project>{522AFE16-95D1-4EE9-AB15-6882AC6A96E1}</Project>
       <Name>Logica</Name>

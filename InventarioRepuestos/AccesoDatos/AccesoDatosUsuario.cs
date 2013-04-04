@@ -29,6 +29,23 @@ namespace AccesoDatos
             return myreader;
         }
 
+        public static void cambiarActivo(string pUsuario, string pClave)
+        {
+            MySqlConnection conn = new MySqlConnection(AccesoDatos._Connection);
+            MySqlDataReader myreader;
+            conn.Open();
+            try
+            {
+                string query = "update usuarios set Activo = @param_Activo where Usuario = @param_Usuario and Clave = @param_Clave";
+                MySqlCommand mycomand = new MySqlCommand(query, conn);
+                mycomand.Parameters.AddWithValue("@param_Usuario", pUsuario);
+                mycomand.Parameters.AddWithValue("@param_Clave", pClave);
+                mycomand.Parameters.AddWithValue("@param_Activo", '1');
+                myreader = mycomand.ExecuteReader();
+            }
+            catch (MySqlException ex) {}
+        }
+
         public static bool insertarFechaActual(string pUsuario, string pClave)
         {
             MySqlConnection conn = new MySqlConnection(AccesoDatos._Connection);
@@ -62,12 +79,28 @@ namespace AccesoDatos
                 mycomand.Parameters.AddWithValue("@param_FechaActual", DateTime.Now);
                 mycomand.Parameters.AddWithValue("@param_Nombre", _UsuarioNuevo.Nombre1);
                 mycomand.Parameters.AddWithValue("@param_Apellido", _UsuarioNuevo.Apellido1);
-                mycomand.Parameters.AddWithValue("@param_Activo", "1");
+                mycomand.Parameters.AddWithValue("@param_Activo", "0");
                 myreader = mycomand.ExecuteReader();
                 banderaError = false;
             }
             catch (MySqlException ex) { banderaError = true; }
             return banderaError;
+        }
+
+        public static void cerrarSesion(int IdUsuario)
+        {
+            MySqlConnection conn = new MySqlConnection(AccesoDatos._Connection);
+            MySqlDataReader myreader;
+            conn.Open();
+            try
+            {
+                string query = "update usuarios set Activo = @param_Activo where IdUsuario = @param_Usuario";
+                MySqlCommand mycomand = new MySqlCommand(query, conn);
+                mycomand.Parameters.AddWithValue("@param_Usuario", IdUsuario);
+                mycomand.Parameters.AddWithValue("@param_Activo", '0');
+                myreader = mycomand.ExecuteReader();
+            }
+            catch (MySqlException ex) { }
         }
     }
 }

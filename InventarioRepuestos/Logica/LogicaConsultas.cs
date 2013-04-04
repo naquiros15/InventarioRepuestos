@@ -11,14 +11,19 @@ namespace Logica
     public class LogicaConsultas
     {
         #region atributos
-        List<string> _Lista;
+        public List<string> _Lista;
+        public List<string> _ListaTipos;        
+        List<string> _ListaModeloXMarca;
+        List<string> _ListaMarcas;
+        List<string> _ListaEstilos;
+        List<string> _ListaCombustibles;
         List<string> _ListaModelos;
-        List<RepuestoD> _ListaRepuestos;
-        List<RepuestoVehiculos> _ListaRepuestosV;
-        List<RepuestoT> _ListaRepuestosT;
-        List<RepuestoM> _ListaRepuestosM;
-        List<RepuestoMa> _ListaRepuestosMa;
-        List<RepuestoDe> _ListaRepuestosDe;
+        public List<RepuestoD> _ListaRepuestos;
+        public List<RepuestoVehiculos> _ListaRepuestosV;
+        public List<RepuestoT> _ListaRepuestosT;
+        public List<RepuestoM> _ListaRepuestosM;
+        public List<RepuestoMa> _ListaRepuestosMa;
+        public List<RepuestoDe> _ListaRepuestosDe;
         List<int> _ListaIdRepuestos;
         private Repuesto _RepuestoNuevo;
         bool banderaError;
@@ -41,41 +46,73 @@ namespace Logica
             set { _ListaIdRepuestos = value; }
         }
 
-        private List<RepuestoVehiculos> ListaRepuestosV
+        public List<RepuestoVehiculos> ListaRepuestosV
         {
             get { return _ListaRepuestosV; }
             set { _ListaRepuestosV = value; }
         }
 
-        private List<RepuestoT> ListaRepuestosT
+        public List<RepuestoT> ListaRepuestosT
         {
             get { return _ListaRepuestosT; }
             set { _ListaRepuestosT = value; }
         }
 
-        private List<RepuestoM> ListaRepuestosM
+        public List<RepuestoM> ListaRepuestosM
         {
           get { return _ListaRepuestosM; }
           set { _ListaRepuestosM = value; }
         }
 
-        private List<RepuestoMa> ListaRepuestosMa
+        public List<RepuestoMa> ListaRepuestosMa
         {
           get { return _ListaRepuestosMa; }
           set { _ListaRepuestosMa = value; }
         }
 
-        private List<RepuestoDe> ListaRepuestosDe
+        public List<RepuestoDe> ListaRepuestosDe
         {
           get { return _ListaRepuestosDe; }
           set { _ListaRepuestosDe = value; }
         }
+
+        public List<string> ListaMarcas
+        {
+            get { return _ListaMarcas; }
+            set { _ListaMarcas = value; }
+        }
+
+        public List<string> ListaEstilos
+        {
+            get { return _ListaEstilos; }
+            set { _ListaEstilos = value; }
+        }
+
+        public List<string> ListaCombustibles
+        {
+            get { return _ListaCombustibles; }
+            set { _ListaCombustibles = value; }
+        }
+
+        public List<string> ListaModeloXMarca
+        {
+            get { return _ListaModeloXMarca; }
+            set { _ListaModeloXMarca = value; }
+        }
+
+        public List<string> ListaTipos
+        {
+            get { return _ListaTipos; }
+            set { _ListaTipos = value; }
+        }
+
         #endregion
 
         #region métodos
 
         public List<string> obtenerTipo()
         {
+            _ListaTipos = new List<string>();
             _Lista = new List<string>();
             MySqlDataReader myreader;
             try
@@ -83,6 +120,7 @@ namespace Logica
                 myreader = AccesoDatosConsultas.obtenerTipoRepuestos();
                 while (myreader.Read())
                 {
+                    _ListaTipos.Add(myreader["IdTipo"].ToString());
                     _Lista.Add(myreader["Descripcion"].ToString());
                 }
                 return _Lista;
@@ -93,6 +131,7 @@ namespace Logica
 
         public List<string> obtenerMarca()
         {
+            _ListaMarcas = new List<string>();
             _Lista = new List<string>();
             MySqlDataReader myreader;
             try
@@ -100,6 +139,7 @@ namespace Logica
                 myreader = AccesoDatosConsultas.obtenerMarca();
                 while (myreader.Read())
                 {
+                    _ListaMarcas.Add(myreader["IdMarca"].ToString());
                     _Lista.Add(myreader["Descripcion"].ToString());
                 }
                 return _Lista;
@@ -107,10 +147,10 @@ namespace Logica
             catch (Exception ex) { return null; }
         }
 
-
+        //Obtiene el id y la descripcion de los modelos de una marca
         public List<string> obtenerModelo(int marca)
         {
-            _ListaModelos = new List<string>();
+            _ListaModeloXMarca = new List<string>();
             _Lista = new List<string>();
             MySqlDataReader myreader;
             try
@@ -118,7 +158,7 @@ namespace Logica
                 myreader = AccesoDatosConsultas.obtenerModelo(marca);
                 while (myreader.Read())
                 {
-                    _ListaModelos.Add(myreader["IdModelo"].ToString());
+                    _ListaModeloXMarca.Add(myreader["IdModelo"].ToString());
                     _Lista.Add(myreader["Descripcion"].ToString());
                 }
                 return _Lista;
@@ -129,6 +169,7 @@ namespace Logica
 
         public List<string> obtenerEstilo()
         {
+            _ListaEstilos = new List<string>();
             _Lista = new List<string>();
             MySqlDataReader myreader;
             try
@@ -136,6 +177,7 @@ namespace Logica
                 myreader = AccesoDatosConsultas.obtenerEstilo();
                 while (myreader.Read())
                 {
+                    _ListaEstilos.Add(myreader["IdEstilo"].ToString());
                     _Lista.Add(myreader["Descripcion"].ToString());
                 }
                 return _Lista;
@@ -147,6 +189,7 @@ namespace Logica
 
         public List<string> obtenerCombustible()
         {
+            _ListaCombustibles = new List<string>();
             _Lista = new List<string>();
             MySqlDataReader myreader;
             try
@@ -154,6 +197,7 @@ namespace Logica
                 myreader = AccesoDatosConsultas.obtenerCombustible();
                 while (myreader.Read())
                 {
+                    _ListaCombustibles.Add(myreader["IdCombustible"].ToString());
                     _Lista.Add(myreader["Descripcion"].ToString());
                 }
                 return _Lista;
@@ -192,8 +236,10 @@ namespace Logica
             catch (Exception ex) { return null; }
         }
 
+        //obtiene todos los modelos almacenados
         public List<string> obtenerModelos()
         {
+            _ListaModelos = new List<string>();
             _Lista = new List<string>();
             MySqlDataReader myreader;
             try
@@ -201,6 +247,7 @@ namespace Logica
                 myreader = AccesoDatosConsultas.obtenerModelos();
                 while (myreader.Read())
                 {
+                    _ListaModelos.Add(myreader["IdModelo"].ToString());
                     _Lista.Add(myreader["Descripcion"].ToString());
                 }
                 return _Lista;
@@ -209,14 +256,25 @@ namespace Logica
         }
 
         
-        public Object PorVehiculo(int pMarca, int pModelo, int pEstilo, int pCombustible, int pAnio)
+        public void PorVehiculo(int pMarca, int pModelo, int pEstilo, int pCombustible, int pAnio)
         {
             int cuenta;
+            int idVehiculo = 0;
             _ListaRepuestosV = new List<RepuestoVehiculos>();
             MySqlDataReader myreader;
             try
             {
-                myreader = AccesoDatosConsultas.obtenerRepuestosPorVehiculo(pMarca, pModelo, pEstilo, pCombustible, pAnio);
+                myreader = AccesoDatosConsultas.obtenerRepuestosPorVehiculo(Int32.Parse(_ListaMarcas[pMarca]), Int32.Parse(_ListaModeloXMarca[pModelo]), 
+                    Int32.Parse(_ListaEstilos[pEstilo]), Int32.Parse(_ListaCombustibles[pCombustible]), pAnio);
+                while (myreader.Read())
+                {
+                    idVehiculo = (int)myreader[0];
+                }
+            }
+            catch (Exception ex) { }
+            try
+            {
+                myreader = AccesoDatosConsultas.obtenerRepuestosPorVehiculo2(idVehiculo);
                 while (myreader.Read())
                 {
                     cuenta = _ListaRepuestosV.Count;
@@ -227,13 +285,12 @@ namespace Logica
                     _ListaRepuestosV.ElementAt(cuenta).Precio = (decimal)myreader[3];
                     _ListaRepuestosV.ElementAt(cuenta).Descripcion = myreader[4].ToString();
                 }
-                return _ListaRepuestosV;
             }
-            catch (Exception ex) { return null; }
+            catch (Exception ex) {}
         }
         #endregion
 
-        public object PorDescripcion(string pDescripcion)
+        public void PorDescripcion(string pDescripcion)
         {
             int cuenta;
             _ListaRepuestosDe = new List<RepuestoDe>();
@@ -255,19 +312,18 @@ namespace Logica
                     _ListaRepuestosDe.ElementAt(cuenta).Precio = (decimal)myreader[7];
                     _ListaRepuestosDe.ElementAt(cuenta).Año = (int)myreader[8];
                 }
-                return _ListaRepuestosDe;
             }
-            catch (Exception ex) { return null; }
+            catch (Exception ex) {}
         }
 
-        public object PorMarca(string pMarca)
+        public void PorMarca(int pMarca)
         {
              int cuenta;
             _ListaRepuestosMa = new List<RepuestoMa>();
             MySqlDataReader myreader;
             try
             {
-                myreader = AccesoDatosConsultas.obtenerRepuestosPorMarca(pMarca);
+                myreader = AccesoDatosConsultas.obtenerRepuestosPorMarca(Int32.Parse(_ListaMarcas[pMarca]));
                 while (myreader.Read())
                 {
                     cuenta = _ListaRepuestosMa.Count;
@@ -282,19 +338,18 @@ namespace Logica
                     _ListaRepuestosMa.ElementAt(cuenta).Descripcion = myreader[7].ToString();
                     _ListaRepuestosMa.ElementAt(cuenta).Año = (int)myreader[8];
                 }
-                return _ListaRepuestosMa;
             }
-            catch (Exception ex) { return null; }
+            catch (Exception ex) {}
         }
 
-        public Object PorModelo(string pModelo)
+        public void PorModelo(int pModelo)
         {
             int cuenta;
             _ListaRepuestosM = new List<RepuestoM>();
             MySqlDataReader myreader;
             try
             {
-                myreader = AccesoDatosConsultas.obtenerRepuestosPorModelo(pModelo);
+                myreader = AccesoDatosConsultas.obtenerRepuestosPorModelo(Int32.Parse(_ListaModelos[pModelo]));
                 while (myreader.Read())
                 {
                     cuenta = _ListaRepuestosM.Count;
@@ -309,19 +364,18 @@ namespace Logica
                     _ListaRepuestosM.ElementAt(cuenta).Descripcion = myreader[7].ToString();
                     _ListaRepuestosM.ElementAt(cuenta).Año = (int)myreader[8];
                 }
-                return _ListaRepuestosM;
             }
-            catch (Exception ex) { return null; }
+            catch (Exception ex) {}
         }
 
-        public Object PorTipo(int pTipo)
+        public void PorTipo(int pTipo)
         {
             int cuenta;
             _ListaRepuestosT = new List<RepuestoT>();
             MySqlDataReader myreader;
             try
             {
-                myreader = AccesoDatosConsultas.obtenerRepuestosPorTipo(pTipo);
+                myreader = AccesoDatosConsultas.obtenerRepuestosPorTipo(Int32.Parse(_ListaTipos[pTipo]));
                 while (myreader.Read())
                 {
                     cuenta = _ListaRepuestosT.Count;
@@ -336,9 +390,8 @@ namespace Logica
                     _ListaRepuestosT.ElementAt(cuenta).Descripcion = myreader[7].ToString();
                     _ListaRepuestosT.ElementAt(cuenta).Año = (int)myreader[8];
                 }
-                return _ListaRepuestosT;
             }
-            catch (Exception ex) { return null; }
+            catch (Exception ex) {}
         }
 
         public void obtenerIdRepuestos()

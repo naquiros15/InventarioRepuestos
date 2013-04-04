@@ -124,35 +124,90 @@ namespace Interfaz.Consultas
 
         protected void botonBuscar_Click(object sender, EventArgs e)
         {
-            GridView1.DataSource = _Logica.PorVehiculo(DropDownListMarca.SelectedIndex+1,
-            DropDownListModelo.SelectedIndex+1,DropDownListEstilo.SelectedIndex+1,
-            DropDownListCombustible.SelectedIndex+1,Int32.Parse(DropDownListAnio.SelectedValue));
-            GridView1.DataBind();
-
+            _Logica.PorVehiculo(DropDownListMarca.SelectedIndex,
+            DropDownListModelo.SelectedIndex,DropDownListEstilo.SelectedIndex,
+            DropDownListCombustible.SelectedIndex,Int32.Parse(DropDownListAnio.SelectedValue));
+            if (_Logica.ListaRepuestosV.Count == 0)
+            {
+                LabelNoHayDatos.Visible = true;
+                GridView1.DataSource = null;
+                GridView1.DataBind();
+            }
+            else
+            {
+                LabelNoHayDatos.Visible = false;
+                GridView1.DataSource = _Logica.ListaRepuestosV;
+                GridView1.DataBind();
+            }
+                
         }
 
         protected void botonBuscar3_Click(object sender, EventArgs e)
         {
-            GridView1.DataSource = _Logica.PorTipo(DropDownListTipos.SelectedIndex+1);
-            GridView1.DataBind();
+            _Logica.PorTipo(DropDownListTipos.SelectedIndex);
+            if (_Logica._ListaRepuestosT.Count == 0)
+            {
+                LabelNoHayDatos.Visible = true;
+                GridView1.DataSource = null;
+                GridView1.DataBind();
+            }
+            else
+            {
+                LabelNoHayDatos.Visible = false;
+                GridView1.DataSource = _Logica._ListaRepuestosT;
+                GridView1.DataBind();
+            }
         }
 
         protected void botonBuscar2_Click(object sender, EventArgs e)
         {
-            GridView1.DataSource = _Logica.PorModelo(DropDownListModelos.SelectedValue);
-            GridView1.DataBind();
+            _Logica.PorModelo(DropDownListModelos.SelectedIndex);
+            if (_Logica.ListaRepuestosM.Count == 0)
+            {
+                LabelNoHayDatos.Visible = true;
+                GridView1.DataSource = null;
+                GridView1.DataBind();
+            }
+            else
+            {
+                LabelNoHayDatos.Visible = false;
+                GridView1.DataSource = _Logica._ListaRepuestosM;
+                GridView1.DataBind();
+            }
         }
 
         protected void botonBuscar1_Click(object sender, EventArgs e)
         {
-            GridView1.DataSource = _Logica.PorMarca(DropDownListMarcas.SelectedValue);
-            GridView1.DataBind();
+            _Logica.PorMarca(DropDownListMarcas.SelectedIndex);
+            if (_Logica.ListaRepuestosMa.Count == 0)
+            {
+                LabelNoHayDatos.Visible = true;
+                GridView1.DataSource = null;
+                GridView1.DataBind();
+            }
+            else
+            {
+                LabelNoHayDatos.Visible = false;
+                GridView1.DataSource = _Logica._ListaRepuestosMa;
+                GridView1.DataBind();
+            }
         }
 
         protected void botonBuscar0_Click(object sender, EventArgs e)
         {
-            GridView1.DataSource = _Logica.PorDescripcion(DropDownListDescripcion.SelectedValue);
-            GridView1.DataBind();
+            _Logica.PorDescripcion(DropDownListDescripcion.SelectedValue);
+            if (_Logica.ListaRepuestosDe.Count == 0)
+            {
+                LabelNoHayDatos.Visible = true;
+                GridView1.DataSource = null;
+                GridView1.DataBind();
+            }
+            else
+            {
+                LabelNoHayDatos.Visible = false;
+                GridView1.DataSource = _Logica._ListaRepuestosDe;
+                GridView1.DataBind();
+            }
         }
 
         protected void botonFacturar_Click(object sender, EventArgs e)

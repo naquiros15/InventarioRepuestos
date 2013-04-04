@@ -114,5 +114,22 @@ namespace AccesoDatos
 
             return banderaError;
         }
+
+        public static void decrementarInventario(Factura _FacturaNueva)
+        {
+            MySqlConnection conn = new MySqlConnection(AccesoDatos._Connection);
+            MySqlDataReader myreader;
+            conn.Open();
+            try
+            {
+                string query = "update repuestos set Inventario = Inventario-5 where IdRepuesto = @param_IdRepuesto";
+                MySqlCommand mycomand = new MySqlCommand(query, conn);
+                mycomand.Parameters.AddWithValue("@param_Cantidad",  _FacturaNueva.Cantidad );
+                mycomand.Parameters.AddWithValue("@param_IdRepuesto", _FacturaNueva.IdRepuesto);
+                myreader = mycomand.ExecuteReader();
+            }
+            catch (MySqlException ex) {}
+
+        }
     }
 }
