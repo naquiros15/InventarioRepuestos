@@ -68,15 +68,6 @@ insert into modelos (Descripcion,IdMarca) values('Swift','18');
 insert into modelos (Descripcion,IdMarca) values('Yaris','19');
 insert into modelos (Descripcion,IdMarca) values('S60','20');
 
-"Select IdTipo from tiporepuestos where IdTipo = @param_Tipo as idTipo" +
-                    "Select IdVehiculo from Vehiculo where IdMarca = @param_Marca AND " +
-                    "IdModelo = @param_Modelo AND " +
-                    "IdEstilo = @param_Estilo AND " +
-                    "Ano = @param_Anio AND" +
-                    "IdCombustible = @param_Combustible as idVehiculo " +
-                    "Insert into repuestos (IdVehiculo, NumeroParte, IdTipo, Inventario, Descripcion, PrecioUnitario) values " +
-                    "(idVehiculo, @param_Parte,idTipo, @param_Inventario,@param_Descripcion, @param_Precio)";
-
 insert into vehiculos (IdMarca, IdModelo, IdCombustible, IdEstilo, Ano, Descripcion) values ('3','49','1','1','2000','Descripcion');
 insert into vehiculos (IdMarca, IdModelo, IdCombustible, IdEstilo, Ano, Descripcion) values ('20','77','1','2','1995','Descripcion10');
 insert into vehiculos (IdMarca, IdModelo, IdCombustible, IdEstilo, Ano, Descripcion) values ('18','75','2','1','2005','Descripcion');
@@ -95,8 +86,14 @@ insert into vehiculos (IdMarca, IdModelo, IdCombustible, IdEstilo, Ano, Descripc
 Insert into repuestos (IdVehiculo, NumeroParte, IdTipo, Inventario, Descripcion, PrecioUnitario) select (Select IdVehiculo from vehiculos where IdMarca = '20' AND IdModelo = '77' AND IdEstilo = '2' AND Ano = '1995' AND IdCombustible = '1'), '98765',(Select IdTipo from tiporepuestos where IdTipo = '2'), '20','descripcion', '45000';
 Insert into repuestos (IdVehiculo, NumeroParte, IdTipo, Inventario, Descripcion, PrecioUnitario) select (Select IdVehiculo from vehiculos where IdMarca = '18' AND IdModelo = '75' AND IdEstilo = '1' AND Ano = '2005' AND IdCombustible = '2'), '12345',(Select IdTipo from tiporepuestos where IdTipo = '1'), '15','descripcion', '65000';
 Insert into repuestos (IdVehiculo, NumeroParte, IdTipo, Inventario, Descripcion, PrecioUnitario) select (Select IdVehiculo from vehiculos where IdMarca = '1' AND IdModelo = '33' AND IdEstilo = '3' AND Ano = '1886' AND IdCombustible = '3'), '45632',(Select IdTipo from tiporepuestos where IdTipo = '3'), '25','Descripcion#1', '22000';
-"Insert into repuestos (IdVehiculo, NumeroParte, IdTipo, Inventario, Descripcion, PrecioUnitario) select (Select IdVehiculo from vehiculos where IdMarca = @param_Marca AND IdModelo = @param_Modelo AND IdEstilo = @param_Estilo AND Ano = @param_Anio AND IdCombustible = @param_Combustible), @param_Parte,(Select IdTipo from tiporepuestos where IdTipo = @param_Tipo), @param_Inventario,@param_Descripcion, @param_Precio";
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+CONSULTAS DE LA PROGRA
+
+
+"Insert into repuestos (IdVehiculo, NumeroParte, IdTipo, Inventario, Descripcion, PrecioUnitario) select (Select IdVehiculo from vehiculos where IdMarca = @param_Marca AND IdModelo = @param_Modelo AND IdEstilo = @param_Estilo AND Ano = @param_Anio AND IdCombustible = @param_Combustible), @param_Parte,(Select IdTipo from tiporepuestos where IdTipo = @param_Tipo), @param_Inventario,@param_Descripcion, @param_Precio";
 
 select repuestos.NumeroParte, tiporepuestos.Descripcion, marcas.Descripcion, modelos.Descripcion, estilos.Descripcion, combustibles.Descripcion, 
 repuestos.Inventario, repuestos.PrecioUnitario, repuestos.Descripcion, vehiculos.Ano from repuestos inner join tiporepuestos ON tiporepuestos.IdTipo 
@@ -150,7 +147,14 @@ insert into facturadetalles (IdFactura, IdRepuesto, Monto, Cantidad) select (sel
 
 Insert into facturas (IdCliente, Estado, Monto, Fecha, IdUsuarioFactura) values ('3','Pago Pendiente','135000','2013/04/03','1')
 
-
+"Select IdTipo from tiporepuestos where IdTipo = @param_Tipo as idTipo" +
+                    "Select IdVehiculo from Vehiculo where IdMarca = @param_Marca AND " +
+                    "IdModelo = @param_Modelo AND " +
+                    "IdEstilo = @param_Estilo AND " +
+                    "Ano = @param_Anio AND" +
+                    "IdCombustible = @param_Combustible as idVehiculo " +
+                    "Insert into repuestos (IdVehiculo, NumeroParte, IdTipo, Inventario, Descripcion, PrecioUnitario) values " +
+                    "(idVehiculo, @param_Parte,idTipo, @param_Inventario,@param_Descripcion, @param_Precio)";
 
 CONSULTA REPUESTOS POR VEHICULO
 select IdVehiculo from vehiculos where IdMarca = '18' and IdModelo='75' and IdEstilo = '1' and IdCombustible = '2' and Ano = '2005'
@@ -191,4 +195,8 @@ Select IdVehiculo from vehiculos where IdMarca = '7' AND IdModelo = '1' AND IdEs
 INSERTA UN REPUESTO
 Insert into repuestos (idVehiculo, NumeroParte, idTipo, Inventario, Descripcion, PrecioUnitario) select (Select max(idVehiculo) from vehiculos), 1496,(Select IdTipo from 
 tiporepuestos where IdTipo = '1'), '22', 'Descripcion', '14000'
+
+insert into vehiculos (IdMarca, IdModelo, IdCombustible, IdEstilo, Ano, Descripcion) select (select IdMarca from marcas where 'Volvo' = Descripcion),(select IdModelo from 
+modelos where Descripcion = 'S60'), (select IdCombustible from combustibles where Descripcion = 'Diesel') ,(select IdEstilo from estilos where Descripcion
+ = 'Sedan'), '1996', 'Descripcion'
 	
