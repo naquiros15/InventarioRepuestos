@@ -12,9 +12,10 @@ namespace Logica
         #region atributos
         List<string> _Lista;
         List<string> _ListaModelos;
-        List<RepuestoD> _ListaRepuestos;
+        public List<RepuestoD> _ListaRepuestos;
         List<int> _ListaIdRepuestos;
         private Repuesto _RepuestoNuevo;
+        private RepuestoM _RepuestoActualizado;
         bool banderaError;
 
         #endregion
@@ -182,24 +183,6 @@ namespace Logica
                 return AccesoDatosRepuestos.insertarRepuesto(_RepuestoNuevo, idVehiculo) ;
         }
 
-
-        /*public Boolean actualizarRespuesto(int numeroParte, int idTipo, int idMarca, int idModelo, int anio, int inventario, string descripcion, decimal precio)
-        {
-            _RepuestoNuevo = new Repuesto();
-            _RepuestoNuevo.NumeroParte = numeroParte;
-            _RepuestoNuevo.IdTipo = idTipo;
-            _RepuestoNuevo.IdMarca = idMarca;
-            _RepuestoNuevo.IdModelo = idModelo;
-            _RepuestoNuevo.Anio = anio;
-            _RepuestoNuevo.Inventario = inventario;
-            _RepuestoNuevo.Descripcion = descripcion;
-            _RepuestoNuevo.Precio = precio;
-            return AccesoDatosRepuestos.borrarRepuesto(_RepuestoNuevo);
-        }*/
-        
-
-
-
         public object obtenerRepuestos()
         {
             int cuenta;
@@ -251,6 +234,29 @@ namespace Logica
             return AccesoDatosRepuestos.borrarRepuesto(_ListaIdRepuestos[pIndiceRepuesto]);
         }
 
+
+        public bool guardarDatosRepuesto(string pNumeroParte, string pInventario, string pDescripcion, string pPrecioUnitario, string pTipo, string pMarca, string pModelo, string pCombustible, string pEstilo, string pAnio)
+        {
+            int idVehiculo = -1;
+            MySqlDataReader myreader;
+            myreader = AccesoDatosRepuestos.buscarIdVehiculoRepuestoActualizado(pMarca, pModelo, pCombustible, pEstilo, pAnio);
+
+            while (myreader.Read())
+            {
+                idVehiculo = (int)myreader[0];
+            }
+            //en caso de que el vehiculo del repuesto no exista
+            if (idVehiculo == -1)
+            {
+                AccesoDatosRepuestos.insertarVehiculoRepuestoActualizado(pMarca, pModelo, pCombustible, pEstilo, pAnio);
+                return AccesoDatosRepuestos.insertarRepuestoActualizadoNuevoVehiculo(pNumeroParte, pInventario, pDescripcion, pPrecioUnitario, pTipo);
+
+            }
+            else //en caso de que el vehiculo del repuesto ya exista
+                return AccesoDatosRepuestos.actualizarRepuesto(pNumeroParte, pInventario, pDescripcion, pPrecioUnitario, pTipo, idVehiculo);
+        }
+
         #endregion
+
     }
 }

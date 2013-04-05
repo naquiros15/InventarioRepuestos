@@ -47,6 +47,11 @@ namespace Interfaz.Gestion_Repuestos
         {
             Response.Redirect("../menuProvisional.aspx");
         }
+        protected void DropDownListMarca_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DropDownListModelo.DataSource = _Logica.obtenerModelo(DropDownListMarca.SelectedIndex + 1);
+            DropDownListModelo.DataBind();
+        }
 
         #endregion
 
@@ -62,17 +67,15 @@ namespace Interfaz.Gestion_Repuestos
                 Response.Write("<SCRIPT>alert('Se ha agregado correctamente dentro del sistema.')</SCRIPT>");
                 Response.Redirect("../menuProvisional.aspx");
             }
+            else
+                Response.Write("<SCRIPT>alert('No se ha agregado correctamente dentro del sistema.')</SCRIPT>");
 
         }
 
 
         #endregion
 
-        protected void DropDownListMarca_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            DropDownListModelo.DataSource = _Logica.obtenerModelo(DropDownListMarca.SelectedIndex+1);
-            DropDownListModelo.DataBind();
-        }
+        
 
      }
 }

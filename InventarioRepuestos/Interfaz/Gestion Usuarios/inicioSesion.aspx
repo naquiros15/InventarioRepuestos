@@ -85,8 +85,8 @@
                         Width="75px" onclick="ButtonEntrar_Click" />
                 </td>
                 <td align="right" class="style2">
-                    <asp:Button ID="ButtonCancelar"  align="right" runat="server" Height="26px" Text="Registrarse" 
-                        Width="75px" onclick="ButtonCancelar_Click" />
+                    <asp:Button ID="ButtonRegistar"  align="right" runat="server" Height="26px" Text="Registrarse" 
+                        Width="75px" onclick="ButtonRegistar_Click" />
                 </td>
                 <td>
                     &nbsp;</td>

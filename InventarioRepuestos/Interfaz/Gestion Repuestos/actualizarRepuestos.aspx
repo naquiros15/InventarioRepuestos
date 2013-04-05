@@ -62,7 +62,8 @@
                     <asp:GridView ID="GridViewRepuestos" runat="server" align="center" 
                         BackColor="White" BorderColor="#999999" 
                         BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Vertical" 
-                        AutoGenerateEditButton="True" onrowupdated="eventoEditarRepuesto">
+                        AutoGenerateSelectButton="True" 
+                        onselectedindexchanging="GridViewRepuestos_SelectedIndexChanging">
                         <AlternatingRowStyle BackColor="#DCDCDC" />
                         <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
                         <HeaderStyle BackColor="#000084" Font-Bold="True" ForeColor="White" />
@@ -80,51 +81,74 @@
             </tr>
             <tr>
                 <td align="right" class="style1">
-                    &nbsp;</td>
-                <td align="right" class="style2">
-                    &nbsp;</td>
+                    <asp:Label ID="Label1" runat="server" Text="Número de Parte:"></asp:Label>
+                </td>
+                <td align="left" class="style2">
+                    <asp:TextBox ID="TextBoxParte" runat="server"></asp:TextBox>
+                </td>
                 <td>
-                    &nbsp;</td>
+                    <asp:Label ID="Label5" runat="server" Text="Marca:"></asp:Label>
+                    <asp:TextBox ID="TextBoxMarca" runat="server"></asp:TextBox>
+                </td>
             </tr>
             <tr>
                 <td align="right" class="style1">
-                    &nbsp;</td>
-                <td align="right" class="style2">
-                    &nbsp;</td>
+                    <asp:Label ID="Label2" runat="server" Text="Inventario:"></asp:Label>
+                </td>
+                <td align="left" class="style2">
+                    <asp:TextBox ID="TextBoxInventario" runat="server"></asp:TextBox>
+                </td>
                 <td>
-                    &nbsp;</td>
+                    <asp:Label ID="Label6" runat="server" Text="Modelo:"></asp:Label>
+                    <asp:TextBox ID="TextBoxModelo" runat="server"></asp:TextBox>
+                </td>
             </tr>
             <tr>
                 <td align="right"class="style1">
-                    &nbsp;</td>
-                <td align="right" class="style2">
-                    &nbsp;</td>
+                    <asp:Label ID="Label3" runat="server" Text="Descripción:"></asp:Label>
+                </td>
+                <td align="left" class="style2">
+                    <asp:TextBox ID="TextBoxDescripcion" runat="server"></asp:TextBox>
+                </td>
                 <td>
-                    &nbsp;</td>
+                    <asp:Label ID="Label7" runat="server" Text="Combustible:"></asp:Label>
+                    <asp:TextBox ID="TextBoxCombustible" runat="server"></asp:TextBox>
+                </td>
             </tr>
             <tr>
                 <td align="right"class="style1">
-                    &nbsp;</td>
-                <td align="right" class="style2">
-                    &nbsp;</td>
+                    Precio Unitario:</td>
+                <td align="left" class="style2">
+                    <asp:TextBox ID="TextBoxPrecio" runat="server"></asp:TextBox>
+                </td>
                 <td>
-                    &nbsp;</td>
+                    <asp:Label ID="Label8" runat="server" Text="Estilo:"></asp:Label>
+                    <asp:TextBox ID="TextBoxEstilo" runat="server"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td align="right"class="style1">
+                    <asp:Label ID="Label4" runat="server" Text="Tipo:"></asp:Label>
+                </td>
+                <td class="style2">
+                    <asp:TextBox ID="TextBoxTipo" runat="server"></asp:TextBox>
+                </td>
+                <td>
+                    <asp:Label ID="Label9" runat="server" Text="Año:"></asp:Label>
+                    <asp:TextBox ID="TextBoxAnio" runat="server"></asp:TextBox>
+                </td>
             </tr>
             <tr>
                 <td align="right"class="style1">
                     &nbsp;</td>
                 <td class="style2">
-                    &nbsp;</td>
-                <td>
-                    &nbsp;</td>
-            </tr>
-            <tr>
-                <td align="right"class="style1">
-                    &nbsp;</td>
-                <td class="style2">
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
-                    <asp:Button ID="ButtonAgregar" runat="server" Height="26px" Text="Volver" 
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button 
+                        ID="ButtonGuardar" runat="server" Height="28px" Text="Guardar Cambios" 
+                        Width="131px" onclick="ButtonAgregar_Click" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
+                    <asp:Button ID="ButtonVolver" runat="server" Height="26px" Text="Volver" 
                         Width="67px" onclick="ButtonAgregar_Click" />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 </td>
                 <td>
                     &nbsp;</td>

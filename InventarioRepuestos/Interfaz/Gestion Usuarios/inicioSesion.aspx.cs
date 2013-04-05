@@ -32,7 +32,7 @@ namespace Interfaz.Gestion_Usuarios
                 Response.Write("<SCRIPT>alert('No se ha podido iniciar sesión. Usuario y contraseña inválidos.')</SCRIPT>");
         }
 
-        protected void ButtonCancelar_Click(object sender, EventArgs e)
+        protected void ButtonRegistar_Click(object sender, EventArgs e)
         {
             Response.Redirect("registro.aspx");
         }
