@@ -56,7 +56,8 @@
                 </td>
                 <td align="right" class="style2">
                     <asp:DropDownList ID="DropDownListCliente" runat="server" Height="22px" 
-                        Width="128px">
+                        Width="128px" AutoPostBack="True" 
+                        onselectedindexchanged="DropDownListCliente_SelectedIndexChanged">
                     </asp:DropDownList>
                 </td>
                 <td>
@@ -67,12 +68,19 @@
             </tr>
             <tr>
                 <td align="right" class="style1">
+                    Nombre:</td>
+                <td align="right" class="style2">
+                    <asp:Label ID="LabelNombre" runat="server" Text="Label"></asp:Label>
+                </td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right" class="style1">
                     <asp:Label ID="Label2" runat="server" Text="Estado:"></asp:Label>
                 </td>
                 <td align="right" class="style2">
-                    <asp:DropDownList ID="DropDownListEstado" runat="server" Height="22px" 
-                        Width="128px">
-                    </asp:DropDownList>
+                    <asp:Label ID="LabelEstado" runat="server" Text="Pago Pendiente"></asp:Label>
                 </td>
                 <td>
                     &nbsp;</td>
@@ -145,18 +153,26 @@
             </tr>
             <tr>
                 <td align="right"class="style1">
-                    <asp:Button ID="ButtonAgregar0" runat="server" Height="26px" Text="Guardar" 
+                    <asp:Button ID="ButtonAgregar0" runat="server" Height="26px" Text="Prefacturar" 
                         Width="67px" onclick="ButtonGuardar_Click" />
                 </td>
                 <td class="style2">
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
-                    <asp:Button ID="ButtonCancelar" runat="server" Height="26px" Text="Cancelar" 
+                    <asp:Button ID="ButtonCancelar" runat="server" Height="26px" Text="Volver" 
                         Width="67px" onclick="ButtonCancelar_Click" />
                 </td>
                 <td>
                     &nbsp;</td>
             </tr>
-        </table>
+            <tr>
+                <td align="right" class="style1">
+                    &nbsp;</td>
+                <td align="right" class="style2">
+                    &nbsp;</td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            </table>
     
     </div>
     </form>

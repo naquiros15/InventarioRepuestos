@@ -150,7 +150,7 @@ namespace Logica
             return _Lista;
         }
 
-        public Boolean agregarRespuesto(int numeroParte, int idTipo, int idMarca, int idModelo, int idEstilo, int idCombustible, int anio, int inventario, string descripcion, int precio)
+        public Boolean agregarRespuesto(int numeroParte, int idTipo, int idMarca, int idModelo, int idEstilo, int idCombustible, string descripcionV, int anio, int inventario, string descripcion, int precio)
         {
             int idVehiculo = -1;
 
@@ -161,6 +161,7 @@ namespace Logica
             _RepuestoNuevo.IdModelo = Int32.Parse(_ListaModelos[idModelo]);
             _RepuestoNuevo.IdEstilo = idEstilo;
             _RepuestoNuevo.IdCombustible = idCombustible;
+            _RepuestoNuevo.DescripcionVehiculo = descripcionV;
             _RepuestoNuevo.Anio = anio;
             _RepuestoNuevo.Inventario = inventario;
             _RepuestoNuevo.Descripcion = descripcion;
@@ -186,6 +187,7 @@ namespace Logica
         public object obtenerRepuestos()
         {
             int cuenta;
+            _ListaIdRepuestos = new List<int>();
             _ListaRepuestos = new List<RepuestoD>();
             MySqlDataReader myreader;
             try
@@ -205,6 +207,8 @@ namespace Logica
                     _ListaRepuestos.ElementAt(cuenta).Precio = (decimal)myreader[7];
                     _ListaRepuestos.ElementAt(cuenta).Descripcion = myreader[8].ToString();
                     _ListaRepuestos.ElementAt(cuenta).Año = (int)myreader[9];
+                    _ListaRepuestos.ElementAt(cuenta).DescripcionVehiculo = myreader[10].ToString();
+                    _ListaIdRepuestos.Add((int)myreader[11]);
                 }
                 return _ListaRepuestos;
             }
@@ -235,25 +239,41 @@ namespace Logica
         }
 
 
-        public bool guardarDatosRepuesto(string pNumeroParte, string pInventario, string pDescripcion, string pPrecioUnitario, string pTipo, string pMarca, string pModelo, string pCombustible, string pEstilo, string pAnio)
+        public bool guardarDatosRepuesto(string pNumeroParte, string pInventario, string pDescripcion, string pPrecioUnitario, string pTipo, string pMarca, string pModelo, string pCombustible, string pEstilo, string pAnio, string pDescripcionV, int IdRepuesto)
         {
             int idVehiculo = -1;
             MySqlDataReader myreader;
-            myreader = AccesoDatosRepuestos.buscarIdVehiculoRepuestoActualizado(pMarca, pModelo, pCombustible, pEstilo, pAnio);
+            myreader = AccesoDatosRepuestos.buscarIdVehiculoRepuestoActualizado(pMarca, pModelo, pCombustible, pEstilo, pAnio, pDescripcionV);
 
             while (myreader.Read())
             {
                 idVehiculo = (int)myreader[0];
             }
             //en caso de que el vehiculo del repuesto no exista
+
             if (idVehiculo == -1)
             {
-                AccesoDatosRepuestos.insertarVehiculoRepuestoActualizado(pMarca, pModelo, pCombustible, pEstilo, pAnio);
-                return AccesoDatosRepuestos.insertarRepuestoActualizadoNuevoVehiculo(pNumeroParte, pInventario, pDescripcion, pPrecioUnitario, pTipo);
-
+                 AccesoDatosRepuestos.insertarVehiculoRepuestoActualizado(pMarca, pModelo, pCombustible, pEstilo, pAnio, pDescripcionV);
+                 myreader = AccesoDatosRepuestos.seleccionarNuevoVehiculo();
+                 while (myreader.Read())
+                 {
+                     idVehiculo = (int)myreader[0];
+                 }
             }
-            else //en caso de que el vehiculo del repuesto ya exista
-                return AccesoDatosRepuestos.actualizarRepuesto(pNumeroParte, pInventario, pDescripcion, pPrecioUnitario, pTipo, idVehiculo);
+                Repuesto repuestoNuevo = new Repuesto();
+                repuestoNuevo.NumeroParte = int.Parse(pNumeroParte);
+                repuestoNuevo.Inventario = int.Parse(pInventario);
+                repuestoNuevo.Precio = decimal.Parse(pPrecioUnitario);
+                repuestoNuevo.Descripcion = pDescripcion;
+                AccesoDatosRepuestos.borrarRepuesto(IdRepuesto);
+                if (AccesoDatosRepuestos.numeroError == 1451) 
+                {
+                    AccesoDatosRepuestos.numeroError = 0;
+                    Exception e = new Exception("El Repuesto no se puede modificar, debido a que se encuentra dentro de una factura pendiente");
+                    e.Source = "Factura";
+                    throw e;
+                }
+                return AccesoDatosRepuestos.actualizarRepuesto(repuestoNuevo, pTipo, idVehiculo);
         }
 
         #endregion

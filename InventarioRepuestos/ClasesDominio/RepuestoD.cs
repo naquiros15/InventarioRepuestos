@@ -79,11 +79,31 @@ namespace ClasesDominio
           get { return precio; }
           set { precio = value; }
         }
+
+        private String descripcionVehiculo;
+
+        public String DescripcionVehiculo
+        {
+            get { return descripcionVehiculo; }
+            set { descripcionVehiculo = value; }
+        }
         #endregion
 
         #region propiedades
         
         #endregion
+
+        private int id;
+        public void asignarId(int pId)
+        {
+            id = pId;
+        }
+
+        public int obtenerId()
+        {
+            return id;
+        }
+
 
         #region constructores
 

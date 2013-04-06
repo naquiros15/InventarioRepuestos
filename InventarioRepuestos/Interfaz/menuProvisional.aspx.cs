@@ -75,5 +75,15 @@ namespace Interfaz
             _Logica.cerrarSesion((int)Session["idUsuario"]);
             Response.Redirect("Gestion Usuarios/inicioSesion.aspx");
         }
+
+        protected void Button7_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Facturación/FacturasProforma.aspx");
+        }
+
+        protected void Button8_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Facturación/FacturasCanceladas.aspx");
+        }
     }
 }

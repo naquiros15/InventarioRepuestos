@@ -70,6 +70,22 @@ namespace AccesoDatos
             return myreader;
         }
 
+
+        public static MySqlDataReader obtenerDDescripcion()
+        {
+            MySqlConnection conn = new MySqlConnection(AccesoDatos._Connection);
+            MySqlDataReader myreader;
+            conn.Open();
+            try
+            {
+                string query = "Select Descripcion From vehiculos";
+                MySqlCommand mycomand = new MySqlCommand(query, conn);
+                myreader = mycomand.ExecuteReader();
+            }
+            catch (MySqlException ex) { myreader = null; }
+            return myreader;
+        }
+
         public static MySqlDataReader obtenerDescripcion()
         {
             MySqlConnection conn = new MySqlConnection(AccesoDatos._Connection);
@@ -116,7 +132,7 @@ namespace AccesoDatos
         }
 
 
-        public static MySqlDataReader obtenerRepuestosPorVehiculo(int pMarca, int pModelo, int pEstilo, int pCombustible, int pAnio)
+        public static MySqlDataReader obtenerRepuestosPorVehiculo(int pMarca, int pModelo, int pEstilo, int pCombustible, int pAnio, string pDescripcion)
         {
             MySqlConnection conn = new MySqlConnection(AccesoDatos._Connection);
             MySqlDataReader myreader;
@@ -124,13 +140,14 @@ namespace AccesoDatos
             try
             {
                 string query = "select IdVehiculo from vehiculos where IdMarca = @param_Marca and IdModelo = @param_Modelo and IdEstilo = "+
-                    "@param_Estilo and IdCombustible = @param_Combustible and Ano = @param_Anio";
+                    "@param_Estilo and IdCombustible = @param_Combustible and Ano = @param_Anio and Descripcion = @param_Descripcion";
                 MySqlCommand mycomand = new MySqlCommand(query, conn);
                 mycomand.Parameters.AddWithValue("@param_Marca", pMarca);
                 mycomand.Parameters.AddWithValue("@param_Modelo", pModelo);
                 mycomand.Parameters.AddWithValue("@param_Estilo", pEstilo);
                 mycomand.Parameters.AddWithValue("@param_Combustible", pCombustible);
                 mycomand.Parameters.AddWithValue("@param_Anio", pAnio);
+                mycomand.Parameters.AddWithValue("@param_Descripcion", pDescripcion);
                 myreader = mycomand.ExecuteReader();
             }
             catch (MySqlException ex) { myreader = null; }
@@ -145,7 +162,7 @@ namespace AccesoDatos
             try
             {
                 string query = "select repuestos.NumeroParte, tiporepuestos.Descripcion, repuestos.Inventario, repuestos.PrecioUnitario,"+
-                "repuestos.Descripcion from repuestos inner join tiporepuestos ON tiporepuestos.IdTipo = repuestos.IdTipo where IdVehiculo = @param_IdVehiculo";
+                "repuestos.Descripcion, repuestos.IdRepuesto from repuestos inner join tiporepuestos ON tiporepuestos.IdTipo = repuestos.IdTipo where IdVehiculo = @param_IdVehiculo";
                 MySqlCommand mycomand = new MySqlCommand(query, conn);
                 mycomand.Parameters.AddWithValue("@param_IdVehiculo", pIdVehiculo);
                 myreader = mycomand.ExecuteReader();
@@ -163,7 +180,7 @@ namespace AccesoDatos
             try
             {
                 string query = "select repuestos.NumeroParte, marcas.Descripcion, modelos.Descripcion, estilos.Descripcion, combustibles.Descripcion,"+
-                "repuestos.Inventario, repuestos.PrecioUnitario, repuestos.Descripcion, vehiculos.Ano from repuestos inner join tiporepuestos ON tiporepuestos.IdTipo "+
+                "repuestos.Inventario, repuestos.PrecioUnitario, repuestos.Descripcion, vehiculos.Ano, repuestos.IdRepuesto from repuestos inner join tiporepuestos ON tiporepuestos.IdTipo " +
                 "= repuestos.IdTipo inner join vehiculos ON repuestos.IdVehiculo = vehiculos.IdVehiculo  inner join modelos ON vehiculos.IdModelo = modelos.IdModelo "+
                 "inner join marcas ON marcas.IdMarca = modelos.IdMarca and vehiculos.IdMarca = marcas.IdMarca  inner join estilos ON vehiculos.IdEstilo = estilos.IdEstilo "+
                 "inner join combustibles ON vehiculos.IdCombustible = combustibles.IdCombustible  where tiporepuestos.IdTipo = @param_Tipo";
@@ -183,7 +200,7 @@ namespace AccesoDatos
              try
              {
                  string query = "select repuestos.NumeroParte, marcas.Descripcion, modelos.Descripcion, estilos.Descripcion, combustibles.Descripcion, "+
-                "repuestos.Inventario, repuestos.PrecioUnitario, repuestos.Descripcion, vehiculos.Ano from repuestos inner join tiporepuestos ON tiporepuestos.IdTipo "+
+                "repuestos.Inventario, repuestos.PrecioUnitario, repuestos.Descripcion, vehiculos.Ano, repuestos.IdRepuesto from repuestos inner join tiporepuestos ON tiporepuestos.IdTipo " +
                 "= repuestos.IdTipo inner join vehiculos ON repuestos.IdVehiculo = vehiculos.IdVehiculo  inner join modelos ON vehiculos.IdModelo = modelos.IdModelo "+
                 "inner join marcas ON marcas.IdMarca = modelos.IdMarca and vehiculos.IdMarca = marcas.IdMarca  inner join estilos ON vehiculos.IdEstilo = estilos.IdEstilo "+
                  "inner join combustibles ON vehiculos.IdCombustible = combustibles.IdCombustible where @param_Modelo = modelos.IdModelo";
@@ -203,7 +220,7 @@ namespace AccesoDatos
              try
              {
                  string query = "select repuestos.NumeroParte, marcas.Descripcion, modelos.Descripcion, estilos.Descripcion, combustibles.Descripcion, "+
-                "repuestos.Inventario, repuestos.PrecioUnitario, repuestos.Descripcion, vehiculos.Ano from repuestos inner join tiporepuestos ON tiporepuestos.IdTipo "+
+                "repuestos.Inventario, repuestos.PrecioUnitario, repuestos.Descripcion, vehiculos.Ano, repuestos.IdRepuesto from repuestos inner join tiporepuestos ON tiporepuestos.IdTipo "+
                 "= repuestos.IdTipo inner join vehiculos ON repuestos.IdVehiculo = vehiculos.IdVehiculo  inner join modelos ON vehiculos.IdModelo = modelos.IdModelo "+
                 "inner join marcas ON marcas.IdMarca = modelos.IdMarca and vehiculos.IdMarca = marcas.IdMarca  inner join estilos ON vehiculos.IdEstilo = estilos.IdEstilo inner join combustibles ON "+
                 "vehiculos.IdCombustible = combustibles.IdCombustible where @param_Marca = marcas.IdMarca";
@@ -223,7 +240,7 @@ namespace AccesoDatos
              try
              {
                  string query = "select repuestos.NumeroParte, tipoRepuestos.Descripcion, marcas.Descripcion, modelos.Descripcion, estilos.Descripcion, combustibles.Descripcion," +
-                 "repuestos.Inventario, repuestos.PrecioUnitario, vehiculos.Ano from repuestos inner join tiporepuestos ON tiporepuestos.IdTipo " +
+                 "repuestos.Inventario, repuestos.PrecioUnitario, vehiculos.Ano, repuestos.IdRepuesto from repuestos inner join tiporepuestos ON tiporepuestos.IdTipo " +
                  "= repuestos.IdTipo inner join vehiculos ON repuestos.IdVehiculo = vehiculos.IdVehiculo  inner join modelos ON vehiculos.IdModelo = modelos.IdModelo " +
                  "inner join marcas ON marcas.IdMarca = modelos.IdMarca and vehiculos.IdMarca = marcas.IdMarca  inner join estilos ON vehiculos.IdEstilo = estilos.IdEstilo inner join combustibles ON " +
                  "vehiculos.IdCombustible = combustibles.IdCombustible where repuestos.Descripcion = @param_Descripcion";
@@ -234,5 +251,6 @@ namespace AccesoDatos
              catch (MySqlException ex) { myreader = null; }
              return myreader;
          }
+
     }
 }

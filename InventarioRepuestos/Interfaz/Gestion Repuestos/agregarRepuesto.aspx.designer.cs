@@ -112,6 +112,15 @@ namespace Interfaz.Gestion_Repuestos {
         protected global::System.Web.UI.WebControls.DropDownList DropDownListEstilo;
         
         /// <summary>
+        /// Control TextBoxDescripcionV.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxDescripcionV;
+        
+        /// <summary>
         /// Control Label5.
         /// </summary>
         /// <remarks>

@@ -20,22 +20,6 @@ namespace Interfaz.Gestion_Repuestos
             GridViewRepuestos.DataBind();
         }
 
-        protected void ButtonAgregar_Click(object sender, EventArgs e)
-        {
-            if (_Logica.guardarDatosRepuesto(TextBoxParte.Text, TextBoxInventario.Text, TextBoxDescripcion.Text, TextBoxPrecio.Text,
-           TextBoxTipo.Text, TextBoxMarca.Text, TextBoxModelo.Text, TextBoxCombustible.Text, TextBoxEstilo.Text, TextBoxAnio.Text))
-            {
-                Response.Write("<SCRIPT>alert('El repuesto no ha sido actualizado.')</SCRIPT>");
-            }
-            else
-                Response.Write("<SCRIPT>alert('El repuesto ha sido actualizado correctamente.')</SCRIPT>");
-        }
-
-        protected void eventoEditarRepuesto(object sender, GridViewUpdatedEventArgs e)
-        {
-            Response.Redirect("../menuProvisional.aspx");
-        }
-
         protected void GridViewRepuestos_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
         {
             TextBoxParte.Text = _Logica._ListaRepuestos[e.NewSelectedIndex].NumeroParte.ToString();
@@ -48,8 +32,40 @@ namespace Interfaz.Gestion_Repuestos
             TextBoxCombustible.Text = _Logica._ListaRepuestos[e.NewSelectedIndex].Combustible.ToString();
             TextBoxEstilo.Text = _Logica._ListaRepuestos[e.NewSelectedIndex].Estilo.ToString();
             TextBoxAnio.Text = _Logica._ListaRepuestos[e.NewSelectedIndex].Año.ToString();
+            TextBoxDescripcionV.Text = _Logica._ListaRepuestos[e.NewSelectedIndex].DescripcionVehiculo.ToString();
+        }
 
-           
+        protected void ButtonGuardar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (_Logica.guardarDatosRepuesto(TextBoxParte.Text, TextBoxInventario.Text, TextBoxDescripcion.Text, TextBoxPrecio.Text,
+           TextBoxTipo.Text, TextBoxMarca.Text, TextBoxModelo.Text, TextBoxCombustible.Text, TextBoxEstilo.Text, TextBoxAnio.Text,
+           TextBoxDescripcionV.Text, _Logica.ListaIdRepuestos[GridViewRepuestos.SelectedIndex]))
+                {
+                    Response.Write("<SCRIPT>alert('El repuesto no ha sido actualizado.')</SCRIPT>");
+                }
+                else
+                {
+                    Response.Write("<SCRIPT>alert('El repuesto ha sido actualizado correctamente.')</SCRIPT>");
+                    GridViewRepuestos.DataSource = _Logica.obtenerRepuestos();
+                    GridViewRepuestos.DataBind();
+                }
+            }
+            catch(Exception ex)
+            {
+                if(ex.Source=="Factura")
+                {
+                     Response.Write("<SCRIPT>alert('"+  ex.Message + "')</SCRIPT>");
+                }
+               
+            }
+
+        }
+
+        protected void ButtonVolver_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("../menuProvisional.aspx");
         }
 
     }

@@ -38,7 +38,7 @@ namespace Interfaz.Facturacion
 
         public void agregarClienteNuevo()
         {
-            if (!_Logica.agregarCliente(Int32.Parse(TextBoxId.Text), Int32.Parse(TextBoxTel.Text),Int32.Parse(TextBoxCel.Text), TextBoxDir.Text, TextBoxTipo.Text))
+            if (!_Logica.agregarCliente(Int32.Parse(TextBoxId.Text), TextBoxNombre.Text, TextBoxApellido.Text, Int32.Parse(TextBoxTel.Text),Int32.Parse(TextBoxCel.Text), TextBoxDir.Text, TextBoxTipo.Text))
             {
                 Response.Write("<SCRIPT>alert('Se ha agregado correctamente dentro del sistema.')</SCRIPT>");
                 //Response.Redirect("../menuProvisional.aspx");

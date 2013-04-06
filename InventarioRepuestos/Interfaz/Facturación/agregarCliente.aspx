@@ -57,6 +57,24 @@
                     &nbsp;</td>
             </tr>
             <tr>
+                <td align="right"class="style1">
+                    Nombre:</td>
+                <td class="style2" align="right">
+                    <asp:TextBox ID="TextBoxNombre" runat="server" Height="22px" Width="128px"></asp:TextBox>
+                </td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right"class="style1">
+                    Apellido:</td>
+                <td class="style2" align="right">
+                    <asp:TextBox ID="TextBoxApellido" runat="server" Height="22px" Width="128px"></asp:TextBox>
+                </td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
                 <td align="right" class="style1">
                     <asp:Label ID="Label3" runat="server" Text="Teléfono:"></asp:Label>
                 </td>
@@ -113,6 +131,14 @@
                     <asp:Button ID="ButtonCancelar"  align="right" runat="server" Height="26px" Text="Cancelar" 
                         Width="67px" onclick="ButtonCancelar_Click" />
                 </td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right"class="style1">
+                    &nbsp;</td>
+                <td class="style2">
+                    &nbsp;</td>
                 <td>
                     &nbsp;</td>
             </tr>

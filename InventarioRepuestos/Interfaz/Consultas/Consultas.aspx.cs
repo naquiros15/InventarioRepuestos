@@ -28,6 +28,10 @@ namespace Interfaz.Consultas
                 DropDownListEstilo.DataBind();
                 DropDownListCombustible.DataSource = _Logica.obtenerCombustible();
                 DropDownListCombustible.DataBind();
+                //Obtiene las descripciones de los vehiculos
+                DropDownListDDescripcion.DataSource = _Logica.obtenerDDescripcion();
+                DropDownListDDescripcion.DataBind();
+                //Obtiene las descripciones de los repuestos
                 DropDownListDescripcion.DataSource = _Logica.obtenerDescripcion();
                 DropDownListDescripcion.DataBind();
                 DropDownListTipos.DataSource = _Logica.obtenerTipo();
@@ -42,6 +46,7 @@ namespace Interfaz.Consultas
                 LinkButton3.BackColor = System.Drawing.Color.White;
                 LinkButton4.BackColor = System.Drawing.Color.White;
                 LinkButton5.BackColor = System.Drawing.Color.White;
+                Session["NumeroBusqueda"] = 1;
             }
             
         }
@@ -62,6 +67,7 @@ namespace Interfaz.Consultas
             LinkButton4.BackColor = System.Drawing.Color.White;
             LinkButton5.BackColor = System.Drawing.Color.White;
             LabelNoHayDatos.Visible = false;
+            Session["NumeroBusqueda"] = 1;
         }
 
         protected void LinkButton2_Click(object sender, EventArgs e)
@@ -75,6 +81,7 @@ namespace Interfaz.Consultas
             LinkButton4.BackColor = System.Drawing.Color.White;
             LinkButton5.BackColor = System.Drawing.Color.White;
             LabelNoHayDatos.Visible = false;
+            Session["NumeroBusqueda"] = 2;
         }
 
         protected void LinkButton3_Click(object sender, EventArgs e)
@@ -88,6 +95,7 @@ namespace Interfaz.Consultas
             LinkButton4.BackColor = System.Drawing.Color.White;
             LinkButton5.BackColor = System.Drawing.Color.White;
             LabelNoHayDatos.Visible = false;
+            Session["NumeroBusqueda"] = 3;
         }
 
         protected void LinkButton4_Click(object sender, EventArgs e)
@@ -101,6 +109,7 @@ namespace Interfaz.Consultas
             LinkButton4.BackColor = System.Drawing.Color.LightGray;
             LinkButton5.BackColor = System.Drawing.Color.White;
             LabelNoHayDatos.Visible = false;
+            Session["NumeroBusqueda"] = 4;
         }
 
         protected void LinkButton5_Click(object sender, EventArgs e)
@@ -114,6 +123,7 @@ namespace Interfaz.Consultas
             LinkButton4.BackColor = System.Drawing.Color.White;
             LinkButton5.BackColor = System.Drawing.Color.LightGray;
             LabelNoHayDatos.Visible = false;
+            Session["NumeroBusqueda"] = 5;
         }
 
         protected void DropDownListMarca_SelectedIndexChanged(object sender, EventArgs e)
@@ -126,7 +136,7 @@ namespace Interfaz.Consultas
         {
             _Logica.PorVehiculo(DropDownListMarca.SelectedIndex,
             DropDownListModelo.SelectedIndex,DropDownListEstilo.SelectedIndex,
-            DropDownListCombustible.SelectedIndex,Int32.Parse(DropDownListAnio.SelectedValue));
+            DropDownListCombustible.SelectedIndex,Int32.Parse(DropDownListAnio.SelectedValue), DropDownListDDescripcion.SelectedValue);
             if (_Logica.ListaRepuestosV.Count == 0)
             {
                 LabelNoHayDatos.Visible = true;
@@ -217,9 +227,9 @@ namespace Interfaz.Consultas
 
         protected void GridView1_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
         {
-            //int idrepuesto = e.NewSelectedIndex;
-            /*int idRepuesto = Convert.ToInt32(GridView1.DataKeys[e.NewSelectedIndex].Value);
-            Response.Redirect(string.Format("../Facturación/factura.aspx?id={0}", idRepuesto));*/
+            int indiceSeleccion = e.NewSelectedIndex;
+            Session["IdRepuesto"] = _Logica.obtenerIdRepuestoSeleccionado(indiceSeleccion, int.Parse(Session["NumeroBusqueda"].ToString()));
+            //Response.Redirect("../Facturación/factura.aspx");
         }
 
     }

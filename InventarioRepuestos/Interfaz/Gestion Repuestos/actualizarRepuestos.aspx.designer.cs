@@ -202,6 +202,24 @@ namespace Interfaz.Gestion_Repuestos {
         protected global::System.Web.UI.WebControls.TextBox TextBoxAnio;
         
         /// <summary>
+        /// Control Label10.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label10;
+        
+        /// <summary>
+        /// Control TextBoxDescripcionV.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxDescripcionV;
+        
+        /// <summary>
         /// Control ButtonGuardar.
         /// </summary>
         /// <remarks>

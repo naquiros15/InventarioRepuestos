@@ -80,6 +80,20 @@ namespace ClasesDominio
         
         #endregion
 
+        #region metodos
+        private int id;
+        public void asignarId(int pId)
+        {
+            id = pId;
+        }
+
+        public int obtenerId()
+        {
+            return id;
+        }
+
+        #endregion
+
         #region constructores
 
         public RepuestoT() { }

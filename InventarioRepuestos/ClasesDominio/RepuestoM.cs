@@ -8,7 +8,7 @@ namespace ClasesDominio
     public class RepuestoM
     {
         #region atributos
-
+        private int id;
         private int numeroParte;
 
         public int NumeroParte
@@ -77,6 +77,20 @@ namespace ClasesDominio
 
         #region propiedades
         
+        #endregion
+
+        #region metodos
+
+        public void asignarId(int pId)
+        {
+            id = pId;
+        }
+
+        public int obtenerId()
+        {
+            return id;
+        }
+
         #endregion
 
         #region constructores

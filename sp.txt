@@ -200,3 +200,28 @@ insert into vehiculos (IdMarca, IdModelo, IdCombustible, IdEstilo, Ano, Descripc
 modelos where Descripcion = 'S60'), (select IdCombustible from combustibles where Descripcion = 'Diesel') ,(select IdEstilo from estilos where Descripcion
  = 'Sedan'), '1996', 'Descripcion'
 	
+	
+select repuestos.NumeroParte, tipoRepuestos.Descripcion, marcas.Descripcion, modelos.Descripcion, estilos.Descripcion, combustibles.Descripcion, 
+repuestos.Inventario, repuestos.PrecioUnitario, repuestos.Descripcion, vehiculos.Ano from repuestos inner join tiporepuestos ON tiporepuestos.IdTipo  
+= repuestos.IdTipo inner join vehiculos ON repuestos.IdVehiculo = vehiculos.IdVehiculo  inner join modelos ON vehiculos.IdModelo = modelos.IdModelo 
+inner join marcas ON marcas.IdMarca = modelos.IdMarca and vehiculos.IdMarca = marcas.IdMarca  inner join estilos ON vehiculos.IdEstilo = estilos.IdEstilo inner join combustibles ON 
+vehiculos.IdCombustible = combustibles.IdCombustible where repuestos.IdRepuesto = '0'
+
+-CONSUKTA FACTURAS PROFORMA
+"select facturas.idFactura, facturas.Estado, facturas.Monto, facturas.Fecha, facturadetalles.Cantidad, "+
+"repuestos.PrecioUnitario, repuestos.NumeroParte, repuestos.Descripcion, tiporepuestos.Descripcion, "+
+"marcas.Descripcion, modelos.Descripcion, vehiculos.Ano, estilos.Descripcion, combustibles.Descripcion from facturas "+
+"inner join facturadetalles on facturas.IdFactura= facturadetalles.IdFactura "+
+"inner join repuestos on repuestos.IdRepuesto = facturadetalles.IdRepuesto "+
+"inner join tiporepuestos ON tiporepuestos.IdTipo repuestos.IdTipo "+
+"inner join vehiculos ON repuestos.IdVehiculo = vehiculos.IdVehiculo "+ 
+"inner join modelos ON vehiculos.IdModelo = modelos.IdModelo "+
+"inner join marcas ON marcas.IdMarca = modelos.IdMarca and vehiculos.IdMarca = marcas.IdMarca  "+
+"inner join estilos ON vehiculos.IdEstilo = estilos.IdEstilo "+
+"inner join combustibles ON vehiculos.IdCombustible = combustibles.IdCombustible ";
+
+-DECREMENTAR INVENTARIO
+update repuestos set facturas.Inventario = (select repuestos.Inventario-'5' from repuestos where
+(faturadetalles.IdFactura = facturas.IdFactura) and (repuestos.IdRepuesto = repuestos.IdRepuesto) and (IdRepuesto = '44')
+
+UPDATE tabla1 SET columna1 = (select tabla2.columna1 from tabla2 WHERE (tabla1.columna2 = tabla2.columna2) AND (tabla1.columna3 = tabla2.columna3))

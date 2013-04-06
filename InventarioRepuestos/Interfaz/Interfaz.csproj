@@ -60,6 +60,8 @@
     <Content Include="Account\Register.aspx" />
     <Content Include="Consultas\Consultas.aspx" />
     <Content Include="Facturación\agregarCliente.aspx" />
+    <Content Include="Facturación\FacturasCanceladas.aspx" />
+    <Content Include="Facturación\FacturasProforma.aspx" />
     <Content Include="Gestion Repuestos\actualizarRepuestos.aspx" />
     <Content Include="Gestion Repuestos\agregarRepuesto.aspx" />
     <Content Include="Gestion Repuestos\borrarRepuesto.aspx" />
@@ -137,6 +139,20 @@
     </Compile>
     <Compile Include="Facturación\agregarCliente.aspx.designer.cs">
       <DependentUpon>agregarCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Facturación\FacturasCanceladas.aspx.cs">
+      <DependentUpon>FacturasCanceladas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Facturación\FacturasCanceladas.aspx.designer.cs">
+      <DependentUpon>FacturasCanceladas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Facturación\FacturasProforma.aspx.cs">
+      <DependentUpon>FacturasProforma.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Facturación\FacturasProforma.aspx.designer.cs">
+      <DependentUpon>FacturasProforma.aspx</DependentUpon>
     </Compile>
     <Compile Include="Gestion Repuestos\actualizarRepuestos.aspx.cs">
       <DependentUpon>actualizarRepuestos.aspx</DependentUpon>

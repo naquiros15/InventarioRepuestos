@@ -11,6 +11,8 @@ namespace ClasesDominio
         #region atributos
         private int id;
         private int cedula;
+        private string nombre;
+        private string apellido;
         private int telefono;
         private int celular;
         private string direccion;
@@ -23,6 +25,19 @@ namespace ClasesDominio
             get { return id; }
             set { id = value; }
         }
+
+        public string Nombre
+        {
+            get { return nombre; }
+            set { nombre = value; }
+        }
+
+        public string Apellido
+        {
+            get { return apellido; }
+            set { apellido = value; }
+        }
+
         public int Telefono
         {
             get { return telefono; }
@@ -54,9 +69,11 @@ namespace ClasesDominio
 
         public Cliente() { }
 
-        public Cliente(int pCedula, int pTelefono, int pCelular, string pDireccion, string pTipo) 
+        public Cliente(int pCedula, string pNombre, string pApellido, int pTelefono, int pCelular, string pDireccion, string pTipo) 
         {
             cedula = pCedula;
+            nombre = pNombre;
+            apellido = pApellido;
             telefono = pTelefono;
             celular = pCelular;
             direccion = pDireccion;

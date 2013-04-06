@@ -116,6 +116,16 @@
             </tr>
             <tr>
                 <td align="right"class="style1">
+                    Descripción del Vehículo:</td>
+                <td class="style2" align="right">
+                    <asp:TextBox ID="TextBoxDescripcionV" runat="server" Height="22px" 
+                        Width="128px"></asp:TextBox>
+                </td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right"class="style1">
                     <asp:Label ID="Label5" runat="server" Text="Año:"></asp:Label>
                 </td>
                 <td align="right" class="style2">

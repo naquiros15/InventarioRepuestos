@@ -58,6 +58,15 @@ namespace Interfaz.Facturacion {
         protected global::System.Web.UI.WebControls.Button ButtonAgregar;
         
         /// <summary>
+        /// Control LabelNombre.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelNombre;
+        
+        /// <summary>
         /// Control Label2.
         /// </summary>
         /// <remarks>
@@ -67,13 +76,13 @@ namespace Interfaz.Facturacion {
         protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
-        /// Control DropDownListEstado.
+        /// Control LabelEstado.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownListEstado;
+        protected global::System.Web.UI.WebControls.Label LabelEstado;
         
         /// <summary>
         /// Control Label10.

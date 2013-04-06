@@ -8,6 +8,7 @@ namespace ClasesDominio
     public class RepuestoVehiculos
     {
         #region atributos
+        private int id;
         private int numeroParte;
         private string tipo;
         private int inventario;
@@ -45,6 +46,20 @@ namespace ClasesDominio
             get { return precio; }
             set { precio = value; }
         }
+        #endregion
+
+        #region metodos
+
+        public void asignarId(int pId)
+        {
+            id = pId;
+        }
+
+        public int obtenerId()
+        {
+            return id;
+        }
+
         #endregion
 
         #region constructores

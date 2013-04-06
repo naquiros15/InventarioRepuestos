@@ -166,6 +166,22 @@ namespace Logica
             catch (Exception ex) { return null; }
         }
 
+        public object obtenerDDescripcion()
+        {
+            _Lista = new List<string>();
+            MySqlDataReader myreader;
+            try
+            {
+                myreader = AccesoDatosConsultas.obtenerDDescripcion();
+                while (myreader.Read())
+                {
+                    _Lista.Add(myreader["Descripcion"].ToString());
+                }
+                return _Lista;
+            }
+            catch (Exception ex) { return null; }
+        }
+
 
         public List<string> obtenerEstilo()
         {
@@ -256,7 +272,7 @@ namespace Logica
         }
 
         
-        public void PorVehiculo(int pMarca, int pModelo, int pEstilo, int pCombustible, int pAnio)
+        public void PorVehiculo(int pMarca, int pModelo, int pEstilo, int pCombustible, int pAnio, string pDescripcion)
         {
             int cuenta;
             int idVehiculo = 0;
@@ -265,7 +281,7 @@ namespace Logica
             try
             {
                 myreader = AccesoDatosConsultas.obtenerRepuestosPorVehiculo(Int32.Parse(_ListaMarcas[pMarca]), Int32.Parse(_ListaModeloXMarca[pModelo]), 
-                    Int32.Parse(_ListaEstilos[pEstilo]), Int32.Parse(_ListaCombustibles[pCombustible]), pAnio);
+                    Int32.Parse(_ListaEstilos[pEstilo]), Int32.Parse(_ListaCombustibles[pCombustible]), pAnio, pDescripcion);
                 while (myreader.Read())
                 {
                     idVehiculo = (int)myreader[0];
@@ -284,6 +300,7 @@ namespace Logica
                     _ListaRepuestosV.ElementAt(cuenta).Inventario = (int)myreader[2];
                     _ListaRepuestosV.ElementAt(cuenta).Precio = (decimal)myreader[3];
                     _ListaRepuestosV.ElementAt(cuenta).Descripcion = myreader[4].ToString();
+                    _ListaRepuestosV.ElementAt(cuenta).asignarId((int)myreader[5]);
                 }
             }
             catch (Exception ex) {}
@@ -311,6 +328,7 @@ namespace Logica
                     _ListaRepuestosDe.ElementAt(cuenta).Inventario = (int)myreader[6];
                     _ListaRepuestosDe.ElementAt(cuenta).Precio = (decimal)myreader[7];
                     _ListaRepuestosDe.ElementAt(cuenta).Año = (int)myreader[8];
+                    _ListaRepuestosDe.ElementAt(cuenta).asignarId((int)myreader[9]);
                 }
             }
             catch (Exception ex) {}
@@ -337,6 +355,7 @@ namespace Logica
                     _ListaRepuestosMa.ElementAt(cuenta).Precio = (decimal)myreader[6];
                     _ListaRepuestosMa.ElementAt(cuenta).Descripcion = myreader[7].ToString();
                     _ListaRepuestosMa.ElementAt(cuenta).Año = (int)myreader[8];
+                    _ListaRepuestosMa.ElementAt(cuenta).asignarId((int)myreader[9]);
                 }
             }
             catch (Exception ex) {}
@@ -363,6 +382,7 @@ namespace Logica
                     _ListaRepuestosM.ElementAt(cuenta).Precio = (decimal)myreader[6];
                     _ListaRepuestosM.ElementAt(cuenta).Descripcion = myreader[7].ToString();
                     _ListaRepuestosM.ElementAt(cuenta).Año = (int)myreader[8];
+                    _ListaRepuestosM.ElementAt(cuenta).asignarId((int)myreader[9]);
                 }
             }
             catch (Exception ex) {}
@@ -389,6 +409,7 @@ namespace Logica
                     _ListaRepuestosT.ElementAt(cuenta).Precio = (decimal)myreader[6];
                     _ListaRepuestosT.ElementAt(cuenta).Descripcion = myreader[7].ToString();
                     _ListaRepuestosT.ElementAt(cuenta).Año = (int)myreader[8];
+                    _ListaRepuestosT.ElementAt(cuenta).asignarId((int)myreader[9]);
                 }
             }
             catch (Exception ex) {}
@@ -415,6 +436,28 @@ namespace Logica
         {
             obtenerIdRepuestos();
             return AccesoDatosRepuestos.borrarRepuesto(_ListaIdRepuestos[pIndiceRepuesto]);
+        }
+
+
+
+        public int obtenerIdRepuestoSeleccionado(int indiceRepuesto, int indiceBusq)
+        {
+            int id = 0;
+            switch (indiceBusq)
+           {
+               case 1: id= _ListaRepuestosV.ElementAt(indiceRepuesto).obtenerId();
+                   break;
+               case 2: id = _ListaRepuestosDe.ElementAt(indiceRepuesto).obtenerId();
+                   break;
+               case 3: id = _ListaRepuestosMa.ElementAt(indiceRepuesto).obtenerId();
+                   break;
+               case 4: id = _ListaRepuestosM.ElementAt(indiceRepuesto).obtenerId();
+                   break;
+               case 5: id = _ListaRepuestosT.ElementAt(indiceRepuesto).obtenerId();
+                   break;
+           }
+            return id;
+           
         }
     }
 }

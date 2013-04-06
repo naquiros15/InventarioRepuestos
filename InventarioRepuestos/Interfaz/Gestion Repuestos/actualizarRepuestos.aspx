@@ -138,16 +138,26 @@
                     <asp:TextBox ID="TextBoxAnio" runat="server"></asp:TextBox>
                 </td>
             </tr>
+                        <tr>
+                <td align="right"class="style1">
+                    &nbsp;</td>
+                <td class="style2">
+                    &nbsp;</td>
+                <td>
+                    <asp:Label ID="Label10" runat="server" Text="Descripción Vehiculo:"></asp:Label>
+                    <asp:TextBox ID="TextBoxDescripcionV" runat="server"></asp:TextBox>
+                            </td>
+            </tr>
             <tr>
                 <td align="right"class="style1">
                     &nbsp;</td>
                 <td class="style2">
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button 
                         ID="ButtonGuardar" runat="server" Height="28px" Text="Guardar Cambios" 
-                        Width="131px" onclick="ButtonAgregar_Click" />
+                        Width="131px" onclick="ButtonGuardar_Click" />
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
                     <asp:Button ID="ButtonVolver" runat="server" Height="26px" Text="Volver" 
-                        Width="67px" onclick="ButtonAgregar_Click" />
+                        Width="67px" onclick="ButtonVolver_Click" />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 </td>
                 <td>

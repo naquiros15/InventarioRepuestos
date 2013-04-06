@@ -60,7 +60,7 @@ namespace Interfaz.Gestion_Repuestos
         private void agregarRespuesto()
         {
             if (!_Logica.agregarRespuesto(Int32.Parse(TextBoxParte.Text), DropDownListTipo.SelectedIndex+1, DropDownListMarca.SelectedIndex+1,
-                DropDownListModelo.SelectedIndex, DropDownListEstilo.SelectedIndex+1, DropDownListCombustible.SelectedIndex+1,
+                DropDownListModelo.SelectedIndex, DropDownListEstilo.SelectedIndex+1, DropDownListCombustible.SelectedIndex+1, TextBoxDescripcionV.Text,
                 Int32.Parse(DropDownListAnio.Text), Int32.Parse(TextBoxInventario.Text), TextBoxDescripcion.Text, 
                 Int32.Parse(TextBoxPrecio.Text)))
             {

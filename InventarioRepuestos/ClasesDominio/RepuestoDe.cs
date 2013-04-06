@@ -79,6 +79,17 @@ namespace ClasesDominio
         
         #endregion
 
+        private int id;
+        public void asignarId(int pId)
+        {
+            id = pId;
+        }
+
+        public int obtenerId()
+        {
+            return id;
+        }
+
         #region constructores
 
         public RepuestoDe() { }

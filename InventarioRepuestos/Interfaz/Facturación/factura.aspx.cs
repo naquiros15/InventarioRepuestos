@@ -12,26 +12,21 @@ namespace Interfaz.Facturacion
     {
         #region atributos
         private static LogicaFacturacion _Logica = new LogicaFacturacion();
-        int idRepuesto = 7;
         #endregion
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                GridViewRespuestos.DataSource = _Logica.obtenerRepuesto(7);
+                GridViewRespuestos.DataSource = _Logica.obtenerRepuesto(Int32.Parse(Session["IdRepuesto"].ToString()));
                 GridViewRespuestos.DataBind();
                 DropDownListCliente.DataSource = _Logica.obtenerClientes();
                 DropDownListCliente.DataBind();
-                List<string> Estado;
-                Estado = new List<string>();
-                Estado.Add("Pago cancelado");
-                Estado.Add("Pago Pendiente");
-                DropDownListEstado.DataSource = Estado;
-                DropDownListEstado.DataBind();
+                LabelNombre.Text = _Logica.ListaNombresClientes[0] + " " + _Logica.ListaApellidosClientes[0];
                 DropDownListCantidad.DataSource = _Logica.obtenerInventario();
                 DropDownListCantidad.DataBind();
                 LabelFecha.Text = _Logica.obtenerFecha();
+                LabelMonto.Text = _Logica.RepuestoSeleccionado[0].Precio.ToString();
             }
         }
 
@@ -47,14 +42,14 @@ namespace Interfaz.Facturacion
 
         protected void ButtonGuardar_Click(object sender, EventArgs e)
         {
-            if (!_Logica.guardarFactura(DropDownListCliente.SelectedIndex+1, DropDownListEstado.SelectedValue, DropDownListCantidad.SelectedIndex+1, 
-                DateTime.Parse(LabelFecha.Text),Decimal.Parse(LabelMonto.Text), (int)Session["idUsuario"], idRepuesto))
+            if (!_Logica.guardarFactura(DropDownListCliente.SelectedIndex+1, "Pago Pendiente", DropDownListCantidad.SelectedIndex+1,
+                DateTime.Parse(LabelFecha.Text), Decimal.Parse(LabelMonto.Text), (int)Session["idUsuario"], (int)Session["IdRepuesto"]))
             {
-                //_Logica.decrementarInventario(DropDownListCantidad.SelectedIndex + 1);
-                Response.Write("<SCRIPT>alert('Se ha agregado correctamente dentro del sistema.')</SCRIPT>");
+                Response.Write("<SCRIPT>alert('Se ha agregado correctamente dentro de la factura.')</SCRIPT>");
+                Response.Redirect("../Consultas/Consultas.aspx");
             }
             else
-                Response.Write("<SCRIPT>alert('No se ha podido guardar la factura.')</SCRIPT>");
+                Response.Write("<SCRIPT>alert('No se ha podido guardar.')</SCRIPT>");
         }
 
         protected void DropDownListCantidad_SelectedIndexChanged(object sender, EventArgs e)
@@ -64,14 +59,12 @@ namespace Interfaz.Facturacion
             LabelMonto.Text = Monto.ToString();
         }
 
+        protected void DropDownListCliente_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LabelNombre.Text = _Logica.ListaNombresClientes[DropDownListCliente.SelectedIndex] + " " + _Logica.ListaApellidosClientes[DropDownListCliente.SelectedIndex];
+        }
+
     }
 }
 
 
-/*protected void gvEmpleados_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
-{
-    int idrepuesto = Convert.ToInt32(DataGridViewRepuestos.DataKeys[e.NewSelectedIndex].Value);
-
-    Response.Redirect(string.Format("factura.aspx?id={0}", idrepuesto));
-
-}*/

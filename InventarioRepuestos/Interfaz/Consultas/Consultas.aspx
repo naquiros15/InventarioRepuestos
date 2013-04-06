@@ -242,7 +242,10 @@
                     </tr>
                     <tr>
                         <td align="right" class="style38">
-                            &nbsp;
+                            <asp:Label ID="Label14" runat="server" Text="Descripción:"></asp:Label>
+                            <asp:DropDownList ID="DropDownListDDescripcion" runat="server" 
+                                AutoPostBack="True" Height="20px" Width="125px">
+                            </asp:DropDownList>
                             </td>
                         <td align="right" class="style33">
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -333,14 +336,14 @@
                                 &nbsp;</td>
                 <td class="style22" align="center">
                                 <asp:Button ID="botonRegresar0" runat="server" 
-                                    Text="Facturar" Height="25px" style="margin-left: 0px" 
+                                    Text="Prefacturar" Height="25px" style="margin-left: 0px" 
                              Width="145px" onclick="botonFacturar_Click" />
                             </td>
                 <td align="center" class="style25">
                                 &nbsp;</td>
                   <td align="center" class="style28">
                                 <asp:Button ID="botonRegresar" runat="server" 
-                                    Text="Regresar" Height="25px" style="margin-left: 0px" 
+                                    Text="Volver" Height="25px" style="margin-left: 0px" 
                              Width="145px" onclick="botonRegresar_Click" />
                             </td>                 
                      <td class="style5" align="center">

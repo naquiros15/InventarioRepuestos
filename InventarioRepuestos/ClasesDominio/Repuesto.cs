@@ -15,6 +15,7 @@ namespace ClasesDominio
         private int idModelo;
         private int idEstilo;
         private int idCombustible;
+        private string descripcionVehiculo;
         private int anio;
         private int inventario;
         private string descripcion;
@@ -78,13 +79,19 @@ namespace ClasesDominio
             get { return idCombustible; }
             set { idCombustible = value; }
         }
+
+        public string DescripcionVehiculo
+        {
+            get { return descripcionVehiculo; }
+            set { descripcionVehiculo = value; }
+        }
         #endregion
 
         #region constructores
 
         public Repuesto() { }
 
-        public Repuesto(int pId, int pNumeroParte, int pIdTipo, int pIdMarca, int pIdModelo, int pIdEstilo, int pIdCombustible, int pAnio, int pInventario, string pDescripcion, decimal pPrecio) 
+        public Repuesto(int pId, int pNumeroParte, int pIdTipo, int pIdMarca, int pIdModelo, int pIdEstilo, int pIdCombustible, string pDescripcionVehiculo, int pAnio, int pInventario, string pDescripcion, decimal pPrecio) 
         {
             id = pId;
             numeroParte = pNumeroParte;
@@ -93,6 +100,7 @@ namespace ClasesDominio
             idModelo = pIdModelo;
             idEstilo = pIdEstilo;
             idCombustible = pIdCombustible;
+            descripcionVehiculo = pDescripcionVehiculo;
             anio = pAnio;
             inventario = pInventario;
             descripcion = pDescripcion;
