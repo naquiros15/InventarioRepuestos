@@ -49,15 +49,23 @@
                     &nbsp;</td>
             </tr>
             <tr>
-                <td align="right" class="style1">
+                <td align="center" class="style1">
                     &nbsp;</td>
-                <td align="right" class="style2">
+                <td align="center" class="style2">
                     <asp:Label ID="LabelCliente" runat="server" Text="Cliente:"></asp:Label>
 &nbsp;&nbsp;
                     <asp:DropDownList ID="DropDownListClientes" runat="server" AutoPostBack="True" 
                         onselectedindexchanged="DropDownListClientes_SelectedIndexChanged">
                     </asp:DropDownList>
                 </td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right" class="style1">
+                    &nbsp;</td>
+                <td align="right" class="style2">
+                    &nbsp;</td>
                 <td>
                     &nbsp;</td>
             </tr>
@@ -86,23 +94,7 @@
             <tr>
                 <td align="right" class="style1">
                     &nbsp;</td>
-                <td align="right" class="style2">
-                    &nbsp;</td>
-                <td>
-                    &nbsp;</td>
-            </tr>
-            <tr>
-                <td align="right" class="style1">
-                    &nbsp;</td>
-                <td align="right" class="style2">
-                    &nbsp;</td>
-                <td>
-                    &nbsp;</td>
-            </tr>
-            <tr>
-                <td align="right" class="style1">
-                    &nbsp;</td>
-                <td align="right" class="style2">
+                <td align="center" class="style2">
                     <asp:Label ID="LabelNoHayDatos" runat="server" 
                         Text="No hay facturas pendientes"></asp:Label>
                 </td>
@@ -110,11 +102,35 @@
                     &nbsp;</td>
             </tr>
             <tr>
+                <td align="center" class="style1">
+                    &nbsp;</td>
+                <td align="center" class="style2">
+                    &nbsp;</td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
                 <td align="right" class="style1">
                     &nbsp;</td>
-                <td align="right" class="style2">
+                <td align="center" class="style2">
+                    &nbsp;</td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right" class="style1">
+                    &nbsp;</td>
+                <td align="center" class="style2">
                     <asp:Button ID="Button1" runat="server" onclick="Button1_Click" Text="Volver" />
                 </td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right" class="style1">
+                    &nbsp;</td>
+                <td align="center" class="style2">
+                    &nbsp;</td>
                 <td>
                     &nbsp;</td>
             </tr>

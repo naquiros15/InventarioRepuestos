@@ -167,10 +167,12 @@ namespace Logica
                     _RepuestoSeleccionado.ElementAt(cuenta).Modelo = myreader[3].ToString();
                     _RepuestoSeleccionado.ElementAt(cuenta).Estilo = myreader[4].ToString(); ;
                     _RepuestoSeleccionado.ElementAt(cuenta).Combustible = myreader[5].ToString();
-                    _RepuestoSeleccionado.ElementAt(cuenta).Inventario = (int)myreader[6];
-                    _RepuestoSeleccionado.ElementAt(cuenta).Precio = (decimal)myreader[7];
-                    _RepuestoSeleccionado.ElementAt(cuenta).Descripcion = myreader[8].ToString();
-                    _RepuestoSeleccionado.ElementAt(cuenta).Año = (int)myreader[9];
+                    _RepuestoSeleccionado.ElementAt(cuenta).DescripcionVehiculo = myreader[6].ToString();
+                    _RepuestoSeleccionado.ElementAt(cuenta).Inventario = (int)myreader[7];
+                    _RepuestoSeleccionado.ElementAt(cuenta).Precio = (decimal)myreader[8];
+                    _RepuestoSeleccionado.ElementAt(cuenta).Descripcion = myreader[9].ToString();
+                    _RepuestoSeleccionado.ElementAt(cuenta).Año = (int)myreader[10];
+                    
                 }
                 return _RepuestoSeleccionado;
             }

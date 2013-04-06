@@ -11,11 +11,11 @@
 
         .style1
         {
-            width: 600px;
+            width: 650px;
         }
         .style2
         {
-            width: 166px;
+            width: 149px;
         }
     </style>
 </head>
@@ -50,8 +50,6 @@
             </tr>
             <tr>
                 <td align="right" class="style1">
-                    <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
-                    </asp:ToolkitScriptManager>
                     <asp:Label ID="Label2" runat="server" Text="Nombre de Usuario:"></asp:Label>
                 </td>
                 <td align="right" class="style2">
@@ -86,7 +84,7 @@
                 </td>
                 <td align="right" class="style2">
                     <asp:Button ID="ButtonRegistar"  align="right" runat="server" Height="26px" Text="Registrarse" 
-                        Width="75px" onclick="ButtonRegistar_Click" />
+                        Width="83px" onclick="ButtonRegistar_Click" />
                 </td>
                 <td>
                     &nbsp;</td>

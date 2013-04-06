@@ -16,7 +16,7 @@
         }
         .style8
         {
-            width: 664px;
+            width: 987px;
         }
         .style17
         {

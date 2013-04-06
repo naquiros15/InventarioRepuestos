@@ -51,14 +51,23 @@
             <tr>
                 <td align="right" class="style1">
                     &nbsp;</td>
-                <td align="right" class="style2">
+                <td align="center" class="style2">
                     <asp:Label ID="LabelCliente" runat="server" Text="Cliente:"></asp:Label>
-                </td>
-                <td>
+                    &nbsp;&nbsp;
                     <asp:DropDownList ID="DropDownListClientes" runat="server" AutoPostBack="True" 
                         onselectedindexchanged="DropDownListClientes_SelectedIndexChanged">
                     </asp:DropDownList>
                 </td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td align="center" class="style1">
+                    &nbsp;</td>
+                <td align="center" class="style2">
+                    &nbsp;</td>
+                <td>
+                    &nbsp;</td>
             </tr>
             <tr>
                 <td align="right" class="style1">
@@ -86,15 +95,7 @@
             <tr>
                 <td align="right" class="style1">
                     &nbsp;</td>
-                <td align="right" class="style2">
-                    &nbsp;</td>
-                <td>
-                    &nbsp;</td>
-            </tr>
-            <tr>
-                <td align="right" class="style1">
-                    &nbsp;</td>
-                <td align="right" class="style2">
+                <td align="center" class="style2">
                     <asp:Label ID="Label2" runat="server" Text="Monto:"></asp:Label>
 &nbsp;<asp:Label ID="LabelMonto" runat="server" Text="Label"></asp:Label>
                 </td>
@@ -102,9 +103,9 @@
                     &nbsp;</td>
             </tr>
             <tr>
-                <td align="right" class="style1">
+                <td align="center" class="style1">
                     &nbsp;</td>
-                <td align="right" class="style2">
+                <td align="center" class="style2">
                     <asp:Label ID="LabelNoHayDatos" runat="server" 
                         Text="No hay facturas pendientes"></asp:Label>
                 </td>
@@ -112,15 +113,40 @@
                     &nbsp;</td>
             </tr>
             <tr>
-                <td align="right" class="style1">
+                <td align="center" class="style1">
                     &nbsp;</td>
-                <td align="right" class="style2">
+                <td align="center" class="style2">
+                    &nbsp;</td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td align="center" class="style1">
+                    &nbsp;</td>
+                <td align="center" class="style2">
                     <asp:Button ID="ButtonPagar" runat="server" onclick="ButtonPagar_Click" 
                         Text="Pagar" />
-                </td>
-                <td>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:Button ID="Button1" runat="server" onclick="Button1_Click" Text="Volver" />
                 </td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td align="center" class="style1">
+                    &nbsp;</td>
+                <td align="center" class="style2">
+                    &nbsp;</td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td align="center" class="style1">
+                    &nbsp;</td>
+                <td align="center" class="style2">
+                    &nbsp;</td>
+                <td>
+                    &nbsp;</td>
             </tr>
         </table>
     

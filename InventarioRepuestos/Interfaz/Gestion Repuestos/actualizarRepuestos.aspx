@@ -10,11 +10,11 @@
 
         .style1
         {
-            width: 454px;
+            width: 490px;
         }
         .style2
         {
-            width: 322px;
+            width: 563px;
         }
     </style>
 </head>
@@ -81,78 +81,131 @@
             </tr>
             <tr>
                 <td align="right" class="style1">
-                    <asp:Label ID="Label1" runat="server" Text="Número de Parte:"></asp:Label>
-                </td>
+                    &nbsp;</td>
                 <td align="left" class="style2">
-                    <asp:TextBox ID="TextBoxParte" runat="server"></asp:TextBox>
-                </td>
+                    &nbsp;</td>
                 <td>
-                    <asp:Label ID="Label5" runat="server" Text="Marca:"></asp:Label>
-                    <asp:TextBox ID="TextBoxMarca" runat="server"></asp:TextBox>
-                </td>
+                    &nbsp;</td>
             </tr>
             <tr>
                 <td align="right" class="style1">
-                    <asp:Label ID="Label2" runat="server" Text="Inventario:"></asp:Label>
-                </td>
+                    &nbsp;</td>
                 <td align="left" class="style2">
-                    <asp:TextBox ID="TextBoxInventario" runat="server"></asp:TextBox>
+                    &nbsp;</td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right" class="style1">
+                    &nbsp;</td>
+                <td align="left" class="style2">
+                    <asp:Label ID="Label1" runat="server" Text="Número de Parte:"></asp:Label>
+                &nbsp;&nbsp;
+                    <asp:TextBox ID="TextBoxParte" runat="server"></asp:TextBox>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Label ID="Label5" runat="server" Text="Marca:"></asp:Label>
+                    &nbsp;&nbsp;&nbsp;
+                    <asp:TextBox ID="TextBoxMarca" runat="server"></asp:TextBox>
                 </td>
                 <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right" class="style1">
+                    &nbsp;</td>
+                <td align="left" class="style2">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Label ID="Label2" runat="server" Text="Inventario:"></asp:Label>
+                &nbsp;&nbsp;
+                    <asp:TextBox ID="TextBoxInventario" runat="server"></asp:TextBox>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:Label ID="Label6" runat="server" Text="Modelo:"></asp:Label>
+                    &nbsp;&nbsp;&nbsp;
                     <asp:TextBox ID="TextBoxModelo" runat="server"></asp:TextBox>
                 </td>
+                <td>
+                    &nbsp;</td>
             </tr>
             <tr>
                 <td align="right"class="style1">
-                    <asp:Label ID="Label3" runat="server" Text="Descripción:"></asp:Label>
-                </td>
+                    &nbsp;</td>
                 <td align="left" class="style2">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Label ID="Label3" runat="server" Text="Descripción:"></asp:Label>
+                &nbsp;&nbsp;
                     <asp:TextBox ID="TextBoxDescripcion" runat="server"></asp:TextBox>
-                </td>
-                <td>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:Label ID="Label7" runat="server" Text="Combustible:"></asp:Label>
+                    &nbsp;&nbsp;
                     <asp:TextBox ID="TextBoxCombustible" runat="server"></asp:TextBox>
                 </td>
-            </tr>
-            <tr>
-                <td align="right"class="style1">
-                    Precio Unitario:</td>
-                <td align="left" class="style2">
-                    <asp:TextBox ID="TextBoxPrecio" runat="server"></asp:TextBox>
-                </td>
                 <td>
-                    <asp:Label ID="Label8" runat="server" Text="Estilo:"></asp:Label>
-                    <asp:TextBox ID="TextBoxEstilo" runat="server"></asp:TextBox>
-                </td>
-            </tr>
-            <tr>
-                <td align="right"class="style1">
-                    <asp:Label ID="Label4" runat="server" Text="Tipo:"></asp:Label>
-                </td>
-                <td class="style2">
-                    <asp:TextBox ID="TextBoxTipo" runat="server"></asp:TextBox>
-                </td>
-                <td>
-                    <asp:Label ID="Label9" runat="server" Text="Año:"></asp:Label>
-                    <asp:TextBox ID="TextBoxAnio" runat="server"></asp:TextBox>
-                </td>
+                    &nbsp;</td>
             </tr>
                         <tr>
                 <td align="right"class="style1">
                     &nbsp;</td>
-                <td class="style2">
-                    &nbsp;</td>
+                <td align="left" class="style2">
+                    &nbsp;&nbsp;&nbsp;
+                    Precio Unitario:&nbsp;&nbsp;
+                    <asp:TextBox ID="TextBoxPrecio" runat="server"></asp:TextBox>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+                    <asp:Label ID="Label8" runat="server" Text="Estilo:"></asp:Label>
+                    &nbsp;&nbsp;&nbsp;
+                    <asp:TextBox ID="TextBoxEstilo" runat="server"></asp:TextBox>
+                </td>
                 <td>
-                    <asp:Label ID="Label10" runat="server" Text="Descripción Vehiculo:"></asp:Label>
-                    <asp:TextBox ID="TextBoxDescripcionV" runat="server"></asp:TextBox>
-                            </td>
+                    &nbsp;</td>
             </tr>
             <tr>
                 <td align="right"class="style1">
                     &nbsp;</td>
                 <td class="style2">
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button 
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Label ID="Label4" runat="server" Text="Tipo:"></asp:Label>
+                &nbsp;&nbsp;
+                    <asp:TextBox ID="TextBoxTipo" runat="server"></asp:TextBox>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Label ID="Label9" runat="server" Text="Año:"></asp:Label>
+                    &nbsp;&nbsp;&nbsp;
+                    <asp:TextBox ID="TextBoxAnio" runat="server"></asp:TextBox>
+                </td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right"class="style1">
+                    &nbsp;</td>
+                <td class="style2">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                    &nbsp;&nbsp;&nbsp;<asp:Label ID="Label10" runat="server" Text="Descripción Vehiculo:"></asp:Label>
+                    &nbsp;&nbsp;&nbsp;
+                    <asp:TextBox ID="TextBoxDescripcionV" runat="server"></asp:TextBox>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right"class="style1">
+                    &nbsp;</td>
+                <td class="style2">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right"class="style1">
+                    &nbsp;</td>
+                <td class="style2">
+                    &nbsp;</td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td align="center"class="style1">
+                    &nbsp;</td>
+                <td class="style2" align="center">
+                    &nbsp;<asp:Button 
                         ID="ButtonGuardar" runat="server" Height="28px" Text="Guardar Cambios" 
                         Width="131px" onclick="ButtonGuardar_Click" />
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;

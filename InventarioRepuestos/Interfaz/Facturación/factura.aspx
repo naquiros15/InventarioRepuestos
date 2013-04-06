@@ -15,7 +15,7 @@
         }
         .style2
         {
-            width: 166px;
+            width: 297px;
         }
     </style>
 </head>
@@ -54,22 +54,23 @@
                 <td align="right" class="style1">
                     <asp:Label ID="Label1" runat="server" Text="Cliente:"></asp:Label>
                 </td>
-                <td align="right" class="style2">
+                <td align="left" class="style2">
                     <asp:DropDownList ID="DropDownListCliente" runat="server" Height="22px" 
                         Width="128px" AutoPostBack="True" 
                         onselectedindexchanged="DropDownListCliente_SelectedIndexChanged">
                     </asp:DropDownList>
-                </td>
-                <td>
-                    &nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:Button ID="ButtonAgregar" runat="server" Height="26px" Text="Agregar cliente" 
                         Width="109px" onclick="ButtonAgregar_Click" />
                 </td>
+                <td>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    </td>
             </tr>
             <tr>
                 <td align="right" class="style1">
                     Nombre:</td>
-                <td align="right" class="style2">
+                <td align="left" class="style2">
                     <asp:Label ID="LabelNombre" runat="server" Text="Label"></asp:Label>
                 </td>
                 <td>
@@ -79,7 +80,7 @@
                 <td align="right" class="style1">
                     <asp:Label ID="Label2" runat="server" Text="Estado:"></asp:Label>
                 </td>
-                <td align="right" class="style2">
+                <td align="left" class="style2">
                     <asp:Label ID="LabelEstado" runat="server" Text="Pago Pendiente"></asp:Label>
                 </td>
                 <td>
@@ -89,7 +90,7 @@
                 <td align="right" class="style1">
                     <asp:Label ID="Label10" runat="server" Text="Cantidad:"></asp:Label>
                 </td>
-                <td align="right" class="style2">
+                <td align="left" class="style2">
                     <asp:DropDownList ID="DropDownListCantidad" runat="server" Height="22px" 
                         Width="128px" AutoPostBack="True" 
                         onselectedindexchanged="DropDownListCantidad_SelectedIndexChanged">
@@ -102,17 +103,25 @@
                 <td align="right" class="style1">
                     <asp:Label ID="Label4" runat="server" Text="Fecha:"></asp:Label>
                 </td>
-                <td align="right" class="style2">
+                <td align="left" class="style2">
                     <asp:Label ID="LabelFecha" runat="server" Text="Label"></asp:Label>
                 </td>
                 <td>
                     &nbsp;</td>
             </tr>
             <tr>
-                <td align="right"class="style1">
+                <td align="right" class="style1">
                     <asp:Label ID="Label5" runat="server" Text="Respuesto:"></asp:Label>
                 </td>
                 <td align="right" class="style2">
+                    &nbsp;</td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right"class="style1">
+                    &nbsp;</td>
+                <td align="left" class="style2">
                     <br />
                     <asp:GridView ID="GridViewRespuestos" runat="server" align="center" 
                         BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" 
@@ -137,7 +146,7 @@
                 <td align="right"class="style1">
                     <asp:Label ID="Label3" runat="server" Text="Monto:"></asp:Label>
                 </td>
-                <td align="right" class="style2">
+                <td align="left" class="style2">
                     <asp:Label ID="LabelMonto" runat="server" Text="Label"></asp:Label>
                 </td>
                 <td>
@@ -153,8 +162,8 @@
             </tr>
             <tr>
                 <td align="right"class="style1">
-                    <asp:Button ID="ButtonAgregar0" runat="server" Height="26px" Text="Prefacturar" 
-                        Width="67px" onclick="ButtonGuardar_Click" />
+                    <asp:Button ID="ButtonAgregar0" runat="server" Height="27px" Text="Prefacturar" 
+                        Width="91px" onclick="ButtonGuardar_Click" />
                 </td>
                 <td class="style2">
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;

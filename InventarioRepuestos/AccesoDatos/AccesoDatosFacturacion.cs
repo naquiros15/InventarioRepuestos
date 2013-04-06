@@ -60,7 +60,7 @@ namespace AccesoDatos
             try
             {
                 string query = "select repuestos.NumeroParte, tipoRepuestos.Descripcion, marcas.Descripcion, modelos.Descripcion, estilos.Descripcion, combustibles.Descripcion," +
-                 "repuestos.Inventario, repuestos.PrecioUnitario, repuestos.Descripcion, vehiculos.Ano from repuestos inner join tiporepuestos ON tiporepuestos.IdTipo " +
+                 "vehiculos.Descripcion, repuestos.Inventario, repuestos.PrecioUnitario, repuestos.Descripcion, vehiculos.Ano from repuestos inner join tiporepuestos ON tiporepuestos.IdTipo " +
                  "= repuestos.IdTipo inner join vehiculos ON repuestos.IdVehiculo = vehiculos.IdVehiculo  inner join modelos ON vehiculos.IdModelo = modelos.IdModelo " +
                  "inner join marcas ON marcas.IdMarca = modelos.IdMarca and vehiculos.IdMarca = marcas.IdMarca  inner join estilos ON vehiculos.IdEstilo = estilos.IdEstilo inner join combustibles ON " +
                  "vehiculos.IdCombustible = combustibles.IdCombustible where repuestos.IdRepuesto = @param_idRepuesto";
