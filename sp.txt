@@ -87,6 +87,9 @@ Insert into repuestos (IdVehiculo, NumeroParte, IdTipo, Inventario, Descripcion,
 Insert into repuestos (IdVehiculo, NumeroParte, IdTipo, Inventario, Descripcion, PrecioUnitario) select (Select IdVehiculo from vehiculos where IdMarca = '18' AND IdModelo = '75' AND IdEstilo = '1' AND Ano = '2005' AND IdCombustible = '2'), '12345',(Select IdTipo from tiporepuestos where IdTipo = '1'), '15','descripcion', '65000';
 Insert into repuestos (IdVehiculo, NumeroParte, IdTipo, Inventario, Descripcion, PrecioUnitario) select (Select IdVehiculo from vehiculos where IdMarca = '1' AND IdModelo = '33' AND IdEstilo = '3' AND Ano = '1886' AND IdCombustible = '3'), '45632',(Select IdTipo from tiporepuestos where IdTipo = '3'), '25','Descripcion#1', '22000';
 
+
+alter clientes tabla add Nombre columna varchar(45);
+alter clientes tabla add Apellido columna varchar(45);
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
